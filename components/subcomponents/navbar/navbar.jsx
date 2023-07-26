@@ -19,6 +19,7 @@ const Navbar = () => {
 				alignItems: "center",
 				justifyContent: "space-between",
 				padding: "4rem 2rem",
+				gap: "2rem",
 			}}>
 			<Link href="/home">
 				<Image
@@ -32,7 +33,7 @@ const Navbar = () => {
 				className="navitems"
 				style={{
 					display: "none",
-					gap: "4rem",
+					gap: "2rem",
 					alignItems: "center",
 				}}>
 				{navMenuItems.map((item, index) => {
