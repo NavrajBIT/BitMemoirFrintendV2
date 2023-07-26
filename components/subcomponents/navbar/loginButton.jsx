@@ -12,7 +12,6 @@ const LoginButton = () => {
 				display: "flex",
 				gap: "1em",
 				justifyContent: "center",
-				margin: "2em 1em",
 			}}>
 			<Button
 				text={"Sign Up"}
