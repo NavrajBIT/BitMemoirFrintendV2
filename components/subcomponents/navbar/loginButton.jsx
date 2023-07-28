@@ -21,6 +21,7 @@ const LoginButton = () => {
 					padding: "0.5em 1.2em",
 					border: "1px solid var(--primary-60)",
 					borderRadius: "0.3em",
+					cursor: "pointer",
 				}}
 			/>
 			<Button
@@ -32,6 +33,7 @@ const LoginButton = () => {
 					border: "1px solid var(--primary-60)",
 					borderRadius: "0.3em",
 					backgroundColor: "var(--primary-60)",
+					cursor: "pointer",
 				}}
 			/>
 		</div>
