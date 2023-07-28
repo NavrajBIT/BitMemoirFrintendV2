@@ -5,17 +5,23 @@ import Image from "next/image";
 const Accordian = ({ heading, text, index }) => {
 	const [isActive, setIsActive] = useState(false);
 	return (
-		<div key={index} onClick={() => setIsActive((prev) => !prev)}>
+		<div key={index}>
 			<div
+				onClick={() => setIsActive((prev) => !prev)}
 				style={{
 					padding: "1.5rem 2rem",
 					borderBottom: "2px solid  var(--primary-90)",
 					display: "flex",
 					justifyContent: "space-between",
 					alignItems: "center",
+					cursor: "pointer",
 				}}>
 				{heading}
-				<span>
+				<span
+					style={{
+						transform: isActive ? "rotate(180deg)" : "none",
+						transition: "all 0.3s",
+					}}>
 					<Image
 						src={"/icons/down_arrow.svg"}
 						height={10}
