@@ -30,6 +30,7 @@ const Navmenu = () => {
 				style={{
 					transform: isNavMenuActive ? "rotate(90deg)" : "none",
 					transition: "all 0.3s",
+					cursor: "pointer",
 				}}
 				onClick={() => setIsNavMenuActive((prev) => !prev)}
 			/>
@@ -51,6 +52,7 @@ const Navmenu = () => {
 					width: "90%",
 					top: "12%",
 					transform: "translateX(-50%)",
+					zIndex: "1000",
 				}}>
 				{navMenuItems.map((item, index) => {
 					return (

@@ -55,6 +55,7 @@ const ProductSuite = () => {
 			<div
 				style={{
 					marginTop: "8rem",
+					marginBottom: "4rem",
 					fontSize: "1.5rem",
 					fontWeight: "700",
 					gridColumn: "1/4",
