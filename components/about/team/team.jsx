@@ -1,33 +1,38 @@
-import teamCard from "./teamCard";
+import TeamCard from "./teamCard";
 import { teamData } from "./teamData";
+import './team.css'
 
-const team = () => {
+const Team = () => {
     return (
         <>
-            <h1>team</h1>
             <div style={{
-                border: '2px solid red',
-                height: '120vh',
-                background: '#00151E'
+                // border: '2px solid red',
+                position: 'relative',
+                padding: '2rem 0'
             }}>
+                <h1 style={{
+                    position: 'absolute',
+                    top: '4.6rem',
+                    left: '10rem',
+                    color: "var(--primary-light)",
+                }} className="teamHead">Founding Team</h1>
                 <div style={{
-                    border: '2px solid red',
-                    backgroundImage: `url(http://localhost:8091/team/team-bg.png)`,
+                    // border: '2px solid red',
+                    backgroundImage: `url(/about/team/team-bg.png)`,
                     backgroundPosition: 'center',
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
-                    height: '80vh',
-                    width: '80%',
-                    margin: 'auto',
+                    width: '85%',
+                    margin: ' 4rem auto',
+                    padding: '2rem 0',
                     display: 'flex',
-                    justifyContent: 'space-evenly',
-                    flexWrap: 'wrap'
+                    justifyContent: 'center',
+                    flexWrap: 'wrap',
                 }}>
-                    {/* <legend>Founding Team</legend> */}
                     {
                         teamData.map((teamMember, index) => {
                             return (
-                                <teamCard
+                                <TeamCard
                                     name={teamMember.name}
                                     designation={teamMember.designation}
                                     img={teamMember.img}
@@ -41,4 +46,4 @@ const team = () => {
     )
 }
 
-export default team;
+export default Team;

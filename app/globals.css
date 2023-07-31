@@ -16,7 +16,8 @@
 
   /* Primary palette */
 	--primary-light: #00d4ff;
-	--primary-dark: #002E37;
+	--primary-dark: #0094B2;
+	--primary-extraDark: #002E37;
 }
 
 * {

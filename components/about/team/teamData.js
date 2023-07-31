@@ -2,51 +2,51 @@ export const teamData = [
     {
         name: 'Nikhil Goyal',
         designation: 'Founder and CEO',
-        img: 'http://localhost:8091/team/nikhil.png'
+        img: '/about/team/nikhil.png'
     },
     {
         name: 'Human Resource',
         designation: 'Kavya GN',
-        img: 'http://localhost:8091/team/nikhil.png'
+        img: '/about/team/kavya.png'
     },
     {
         name: 'Radhika Mahajan',
         designation: 'BD Executive',
-        img: 'http://localhost:8091/team/nikhil.png'
+        img: '/about/team/radhika.png'
     },
     {
         name: 'Ankita Rai',
         designation: 'Marketing Executive',
-        img: 'http://localhost:8091/team/nikhil.png'
+         img: '/about/team/ankita.png'
     },
     {
         name: 'Mayank Gupta',
         designation: 'Social Media Manager',
-        img: 'http://localhost:8091/team/nikhil.png'
+         img: '/about/team/mayank.png'
     },
     {
         name: 'R.K Kedia',
         designation: 'HR Consultant',
-        img: 'http://localhost:8091/team/nikhil.png'
+         img: '/about/team/rk.png'
     },
     {
         name: 'Navraj Sharma',
         designation: 'Blockchain Developer',
-        img: 'http://localhost:8091/team/nikhil.png'
+         img: '/about/team/navraj.png'
     },
     {
         name: 'Shubham Jaiswal',
         designation: 'Blockchain Developer',
-        img: 'http://localhost:8091/team/nikhil.png'
+         img: '/about/team/shubham.png'
     },
     {
         name: 'Hemant Kumar',
         designation: 'Blockchain Developer',
-        img: 'http://localhost:8091/team/nikhil.png'
+         img: '/about/team/hemant.png'
     },
     {
         name: 'Vivek Tyagi',
         designation: 'Blockchain Developer',
-        img: 'http://localhost:8091/team/nikhil.png'
+         img: '/about/team/vivek.png'
     },
 ];
