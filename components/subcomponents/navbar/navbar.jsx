@@ -26,6 +26,9 @@ const Navbar = () => {
         <Link className="link" href="/verify">
           Verify
         </Link>
+        <Link className="link" href="/about">
+          About
+        </Link>
       </div>
       <LoginButton />
     </nav>

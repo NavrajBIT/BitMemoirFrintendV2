@@ -1,5 +1,5 @@
 import TopTool from "./topTool";
-import Button from "@/components/subcomponents/button/button";
+// import Button from "@/components/subcomponents/button/button";
 import { useRef } from "react";
 
 const TopToolBar = ({ creator }) => {
@@ -33,7 +33,7 @@ const TopToolBar = ({ creator }) => {
         }}
       >
         Image:
-        <Button
+        {/* <Button
           text={
             creator.uploadedImage ? creator.uploadedImageName : "Select Image"
           }
@@ -43,8 +43,8 @@ const TopToolBar = ({ creator }) => {
             fontSize: "0.75rem",
             padding: "var(--padding-extra-light)",
             width: "100%",
-          }}
-        />
+          }} 
+        /> */}
       </div>
       <TopTool
         icon="remove"

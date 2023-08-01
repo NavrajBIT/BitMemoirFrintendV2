@@ -1,34 +1,20 @@
-import styles from "./button.module.css";
-import Image from "next/image";
-
-const Button = ({ text, startIcon, endIcon, onClick, variant, style }) => {
-  const variantOptions = {
-    primary: styles.primaryButton,
-  };
-
-  const className = variantOptions[variant];
+const Button = ({ buttonText, btnClicked }) => {
+  // const ankit = () => {
+  //   console.log(`ankit runs`);
+  // }
   return (
-    <button onClick={onClick} className={className} style={style && style}>
-      {startIcon && (
-        <Image
-          height={24}
-          width={24}
-          src={"/icons/" + startIcon + ".svg"}
-          alt={text}
-        />
-      )}
-      {text}
-
-      {endIcon && (
-        <Image
-          height={24}
-          width={24}
-          src={"/icons/" + endIcon + ".svg"}
-          alt={text}
-        />
-      )}
+    <button style={{
+      background: 'var(--primary-dark)',
+      color: 'white',
+      padding: '1rem',
+      width: '25%',
+      borderRadius: '4px',
+      marginTop: '1rem',
+      cursor: 'pointer',
+    }} onClick={btnClicked}>
+      {buttonText}
     </button>
-  );
+  )
 };
 
 export default Button;

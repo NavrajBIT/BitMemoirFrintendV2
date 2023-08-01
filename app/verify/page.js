@@ -1,5 +1,5 @@
-const Page = () => {
-  return <div>This is Verify Page</div>;
-};
+import Verify from "@/components/verify/verify";
+
+const Page = () => <Verify />;
 
 export default Page;
