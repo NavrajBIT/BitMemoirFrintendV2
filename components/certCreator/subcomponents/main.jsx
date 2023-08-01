@@ -22,12 +22,15 @@ const Main = ({variable,setVariable, tool, setTool }) => {
    const [isItalic, setIsItalic] = useState(false);
    const [textItems, setTextItems] = useState({});
    const [isClicked, setIsClicked] = useState(false);
-   const [selectedItemId,setSelectedItemId] = useState(0)
-   const [editing,setEditing] = useState(0)
+   const [selectedItemId,setSelectedItemId] = useState(0);
+   const [editing,setEditing] = useState(0);
 
    const [qrCodeColor, setQRCodeColor] = useState("#000000");
    const [qrCodeSize, setQRCodeSize] = useState(70);
-   const [logoImage,setLogoImage] = useState(null)
+   const [logoImage,setLogoImage] = useState(null);
+   const [logos,setLogos] = useState({
+
+   });
 
 
 
@@ -41,9 +44,10 @@ const Main = ({variable,setVariable, tool, setTool }) => {
 
 
 
-   console.log(textItems)
-   console.log(tool)
-   console.log(qrCodeColor)
+   console.log(textItems);
+   console.log(tool);
+   console.log(logos);
+
 
    const imageRef = useRef(null);
  
@@ -139,6 +143,22 @@ const pickerStyles = {
   };
 
 
+
+  const handleOnChangeLogo = (event) =>{
+    const id = Date.now().toString();
+    setLogos((prevLogos) => ({
+      ...prevLogos,
+      [id]: {
+        "url":event.target.files[0],
+        width:"100px",
+        height:"100px",
+        x:0,
+        y:0
+      },
+    }))
+  }
+
+
   const OnClickRemoveButton = () => {
     const updatedTextItems = { ...textItems };
     delete updatedTextItems[selectedItemId];
@@ -194,7 +214,7 @@ const pickerStyles = {
 
 
 
-  const handleTextMouseDown = (id) => {
+const handleTextMouseDown = (id) => {
     setTextItems((prevTextItems) => ({
       ...prevTextItems,
       [id]: {
@@ -204,6 +224,7 @@ const pickerStyles = {
     }));
   };
   
+
 const handleTextMouseUp = () => {
   setTextItems(prevTextItems => {
     const updatedTextItems = { ...prevTextItems };
@@ -214,7 +235,22 @@ const handleTextMouseUp = () => {
   });
 };
 
-  const handleResize = (id, width, height) => {
+const handleResizeLogo = (id, width, height) => {
+
+  if(id !==null){
+    setLogos((prevLogos) => ({
+      ...prevLogos,
+      [id]: {
+        ...prevLogos[id],
+        width,
+        height,
+      },
+    }))
+  }
+  
+}
+
+const handleResize = (id, width, height) => {
     console.log(id)
     
     if (id !==null){
@@ -227,7 +263,10 @@ const handleTextMouseUp = () => {
       },
     }));
   }
-  };
+};
+
+
+
 
   const handleResizeStart = (e, direction, ref, delta, position) => {
     const boxId = ref.parentElement.getAttribute("data-boxid");
@@ -314,7 +353,9 @@ const handleTextMouseUp = () => {
               alt="Uploaded"
               style={{ maxWidth: '100%', height: 'auto' }}
             />
-            {tool === "Add Text"&&<><Draggable bounds="parent">
+
+            {tool === "Add Text"&&<>
+            <Draggable bounds="parent">
               <div
                 style={{
                   position: 'absolute',
@@ -384,10 +425,157 @@ const handleTextMouseUp = () => {
 
 
 
-            
+            {
+              Object.entries(logos).map(([id, logo])=>{
+                const { url, width, height } = logos[id];
+                const style = {
+                  textAlign:"center",
+                  width: `${width}px`, 
+                  height: `${height}px`,
+                  cursor:"grab"
+                };
+                return(
+                  <Draggable bounds="parent" key={logo}>
+                    <div
+                      style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        // padding: '8px',
+                        // background: 'rgba(255, 255, 255, 0.8)',
+                        borderRadius: '4px',
+                        // boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+                        zIndex: 1, // Ensure the editing tools are above the canvas
+                        border:"1px solid grey",
+                      }}
+
+                      onMouseUpCapture={()=>{
+                        setFlag(true)
+                      }}
+
+                      onMouseDownCapture={()=>{
+                        setFlag(true)
+                      }}
+
+                    >
+                    <Resizable
+                          style={style}
+                          defaultSize={{
+                            width: 150,
+                            height: 150
+                          }}
+                          // onResizeStart={handleResizeStart}
+                          onResizeStart={handleResizeStart}
+                          onResize={(e, direction, ref, delta, position) =>
+                            handleResizeLogo(id, ref.clientWidth, ref.clientHeight)
+                          }
+                          minWidth={100}
+                          minHeight={100}
+                          maxHeight={500}
+                          maxWidth={500}
+                          handleStyles={{
+                            top: flag
+                              ? {
+                                  marginTop: -3,
+                                  marginLeft: -5,
+                                  top: 0,
+                                  left: "50%",
+                                  cursor: "ns-resize",
+                                  border: "3px solid #999",
+                                  borderLeft: "none",
+                                  borderRight: "none",
+                                  borderBottom: "none",
+                                  borderWidth: 5,
+                                  borderColor: "#4d4d4d",
+                                  width: 10,
+                                  height: 10,
+                                  boxSizing: "border-box",
+                                  zIndex: 1
+                                }
+                              : "",
+                            left: flag
+                              ? {
+                                  marginTop: -5,
+                                  marginLeft: -3,
+                                  top: "50%",
+                                  left: 0,
+                                  cursor: "ew-resize",
+                                  border: "3px solid #999",
+                                  borderTop: "none",
+                                  borderRight: "none",
+                                  borderBottom: "none",
+                                  borderWidth: 5,
+                                  borderColor: "#4d4d4d",
+                                  width: 10,
+                                  height: 10,
+                                  boxSizing: "border-box",
+                                  zIndex: 1
+                                }
+                              : "",
+                            bottom: flag && {
+                              marginTop: -7,
+                              marginLeft: -5,
+                              top: "100%",
+                              left: "50%",
+                              cursor: "ns-resize",
+                              border: "3px solid #999",
+                              borderLeft: "none",
+                              borderRight: "none",
+                              borderTop: "none",
+                              borderWidth: 5,
+                              borderColor: "#4d4d4d",
+                              width: 10,
+                              height: 10,
+                              boxSizing: "border-box",
+                              zIndex: 1
+                            },
+                            right: flag
+                              ? {
+                                  marginTop: -5,
+                                  marginLeft: -7,
+                                  top: "50%",
+                                  left: "100%",
+                                  cursor: "ew-resize",
+                                  border: "3px solid #999",
+                                  borderTop: "none",
+                                  borderLeft: "none",
+                                  borderBottom: "none",
+                                  borderWidth: 5,
+                                  borderColor: "#4d4d4d",
+                                  width: 10,
+                                  height: 10,
+                                  boxSizing: "border-box",
+                                  zIndex: 1
+                                }
+                              : ""
+                          }}
+                          handleComponent={{
+                            topRight: flag ? <ResizeHandle /> : "",
+                            topLeft:flag ? <ResizeHandle /> : "",
+                            bottomLeft:flag ? <ResizeHandle /> : "",
+                            bottomRight: flag ? <ResizeHandle /> : ""
+                          }}
+                          resizeRatio={1}
+                        >
+                      <img
+                          ref={imageRef}
+                          src={URL.createObjectURL(url)}
+                          alt="Uploaded"
+                          style={{ width: width, height: height }}
+                        />
+
+                    </Resizable>
+
+                      </div>
+                  </Draggable>
+                )
+
+              })
+            }
 
 
-            {Object.entries(textItems).map(([id, textItem]) => {
+          {Object.entries(textItems).map(([id, textItem]) => {
             
             const { text, flag, width, height } = textItems[id];
             const style = {
@@ -451,7 +639,7 @@ const handleTextMouseUp = () => {
                   
 
 
-          <Resizable
+            <Resizable
                 style={style}
                 defaultSize={{
                   width: 150,
@@ -552,13 +740,14 @@ const handleTextMouseUp = () => {
               >
                 <span>
                   {textItem.text}
-                </span></Resizable>
+                </span>
+              </Resizable>
                 </div>
               </Draggable>
             )
               }
             )
-            }
+          }
             
                  
           </div>
@@ -720,7 +909,9 @@ const handleTextMouseUp = () => {
                         height:"auto",
                     }}/>
                     <div>
-                        <input id="logo-selector" type="file" onChange={(e)=> setLogoImage(e.target.files[0])} style={{
+                        <input id="logo-selector" type="file" onChange={(e)=>{
+                          handleOnChangeLogo(e);
+                        }} style={{
                           display:"none",
                         }}/>
 
