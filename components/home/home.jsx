@@ -9,6 +9,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 
 import "./home.css";
 import Button from "../subcomponents/button/button";
+
 const Home = () => {
 	return (
 		<div style={{ minHeight: "var(--min-height)" }}>
@@ -50,7 +51,7 @@ const Home = () => {
 							fontWeight: "700",
 						}}
 						className="heroHeading">
-						Bitmemoir <br />
+						BitMemoir <br />
 						for Education
 					</div>
 					<div
