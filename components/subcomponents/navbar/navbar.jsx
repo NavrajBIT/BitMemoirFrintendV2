@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import LoginButton from "./loginButton";
+import Button from "../button/button";
 import Navmenu from "../navmenu/navmenu";
 import "./navbar.css";
 const Navbar = () => {
@@ -52,7 +53,39 @@ const Navbar = () => {
 						</Link>
 					);
 				})}
-				<LoginButton />
+			</div>
+			<div
+				className="navitems"
+				style={{
+					alignItems: "center",
+					display: "flex",
+					gap: "1em",
+					justifyContent: "center",
+					display: "none",
+				}}>
+				<Button
+					text={"Sign Up"}
+					style={{
+						color: "var(--white-100)",
+						fontSize: "1.25rem",
+						padding: "0.5em 1.2em",
+						border: "1px solid var(--primary-60)",
+						borderRadius: "0.3em",
+						cursor: "pointer",
+					}}
+				/>
+				<Button
+					text={"Get Wallet"}
+					style={{
+						color: "var(--white-100)",
+						fontSize: "1.25rem",
+						padding: "0.5em 1em",
+						border: "1px solid var(--primary-60)",
+						borderRadius: "0.3em",
+						backgroundColor: "var(--primary-60)",
+						cursor: "pointer",
+					}}
+				/>
 			</div>
 			<span className="navmenu">
 				<Navmenu />
