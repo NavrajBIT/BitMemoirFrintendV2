@@ -1,15 +1,10 @@
+import 'tailwindcss/tailwind.css'
+import Blogs from "@/components/blogs/blogs"
 const page = () => {
-    return <div>
-        <div>
-            <p>
-                Top Blogs
-            </p>
-            <div>
-                <p>Sort</p>
-                <p>Filter</p>
-            </div>
-        </div>
-    </div>;
+
+    return (
+        <Blogs />
+    )
 };
 
 export default page;
