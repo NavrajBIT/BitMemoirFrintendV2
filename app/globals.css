@@ -7,8 +7,8 @@
   --padding-extra-light: 5px;
   --border-radius: 12px;
   --border-radius-light: 6px;
-  --background-primary: #59069a;
-  --background-secondary: #d4c7dd;
+  /* --background-primary: #59069a; */
+  /* --background-secondary: #d4c7dd; */
   --background-dark: #23023b;
   --text-primary: rgb(230, 230, 230);
   --text-bright: rgb(255, 255, 255);
@@ -18,6 +18,7 @@
 	--primary-light: #00d4ff;
 	--primary-dark: #0094B2;
 	--primary-extraDark: #002E37;
+	--primary-darkest: #001D23;
 }
 
 * {
@@ -78,4 +79,11 @@ button {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+@media only screen and (max-width:600px){
+  body{
+    background-image: none;
+    background-color: var(--primary-darkest);
+  }
 }

@@ -1,25 +1,22 @@
-import Input from '../subcomponents/form/input';
-import Button from '../subcomponents/button/button';
-// import {formContainerStyleScript} from '../subcomponents/form/formContainerStyleScript';
-import '../verify/verify.css';
+"use client"
+
+import Input from '@/components/subcomponents/form/input';
+import Button from '@/components/subcomponents/button/button';
+import './verificationForm.css';
 
 const VerificationForm = ({setIsVerified}) => {
-    console.log(`hello verify component`);
-    // console.log("hello" + formContainerStyleScript);
 
-    const btnClicked=(e)=>{
-        e.preventDefault();
+    const btnClicked=()=>{
         console.log('btn click');
         setIsVerified(true)
     }
-
     return (
         <>
             <div style={{
                 height: '80vh',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
             }}>
                 <div style={{
                     // border:'2px solid red',
@@ -33,7 +30,7 @@ const VerificationForm = ({setIsVerified}) => {
                     alignItems: 'center',
                     borderRadius: '8px',
                     position: 'relative'
-                }}>
+                }} id="formContainer">
                     <h1 style={{
                         color: 'var(--primary-light)',
                         position: 'absolute',

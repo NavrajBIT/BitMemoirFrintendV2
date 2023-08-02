@@ -1,0 +1,7 @@
+/* MEDIA QUERY */
+
+@media only screen and (max-width:450px){
+    .input{
+       max-width:80% !important;
+    }
+}

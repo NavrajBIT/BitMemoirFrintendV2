@@ -1,3 +1,5 @@
+import './input.css';
+
 const inputStyle = {
     maxWidth: '70%',
     width: '90%',
@@ -9,7 +11,7 @@ const inputStyle = {
 }
 const Input = ({ placeholder }) => {
     return (
-        <input type="text" placeholder={placeholder} style={inputStyle} />
+        <input type="text" placeholder={placeholder} style={inputStyle} className="input"/>
     )
 }
 

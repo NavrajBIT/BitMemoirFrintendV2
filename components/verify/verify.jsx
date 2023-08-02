@@ -1,9 +1,8 @@
 "use client"
 
 import React, { useState } from 'react';
-// import { client } from 'next/client';
-import VerificationForm from "./verificationForm"
-import VerifiedComp from "./verifiedComp"
+import VerificationForm from './verificationForm/verificationForm';
+import VerifiedComp from './verifiedComp/verifiedComp';
 
 const Verify = () => {
   const [isVerified, setIsVerified] = useState(false);
