@@ -1,0 +1,45 @@
+.kyc-input::placeholder {
+	opacity: 0.6;
+	transition: all 0.3s;
+	color: "white" !important;
+}
+.kyc-input:focus + .kyc-label,
+.kyc-input:not(:placeholder-shown) + .kyc-label {
+	opacity: 0.6 !important;
+}
+.kyc-input:focus::placeholder {
+	opacity: 0 !important;
+}
+.kyc-input {
+	resize: none;
+}
+.questionCircle:hover + .tooltip {
+	display: block !important;
+}
+@media screen and (min-width: 1024px) {
+	.kyc-heading {
+		display: flex !important;
+	}
+	.kyc-heading-mobile {
+		display: none !important;
+	}
+	.kycForm {
+		background-color: var(--primary-110) !important;
+		padding: 4rem 3rem 1rem 3rem !important;
+	}
+	.kyc-background {
+		display: block !important;
+	}
+	.kycFileUpload {
+		grid-column: 1/2 !important;
+		grid-row: 1/2 !important;
+	}
+}
+@media screen and (min-width: 1200px) {
+	.kyc-choosefileicon {
+		display: none !important;
+	}
+	.kyc-choosefile {
+		display: flex !important;
+	}
+}

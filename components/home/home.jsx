@@ -20,6 +20,7 @@ const Home = () => {
 					flexDirection: "column",
 					alignItems: "center",
 					justifyContent: "center",
+					marginTop: "0rem",
 				}}>
 				<Image
 					src={"/assets/images/background_hero.png"}
@@ -129,6 +130,7 @@ const Home = () => {
 					position: "relative",
 					padding: "3rem",
 					textAlign: "center",
+					backgroundColor: "var(--primary-80)",
 				}}>
 				<div
 					style={{
@@ -137,25 +139,32 @@ const Home = () => {
 						left: "0",
 						height: "100%",
 						width: "100%",
-						zIndex: "-1",
+						zIndex: "0",
 						background:
-							"url('/assets/images/background_1.png') var(--primary-70) 100%/ cover no-repeat",
+							"url('/assets/images/background_1.png') var(--primary-80) 100%/ cover no-repeat",
 						opacity: "0.4",
 						backgroundSize: "cover",
 						objectFit: "fill",
-						mixBlendMode: "lighten",
+						mixBlendMode: "multiply",
 					}}></div>
 				<div
 					className="whybitmemoirHeading"
 					style={{
 						fontSize: "1.5rem",
 						fontWeight: "700",
+						zIndex: "1",
+						position: "relative",
 						// marginTop: "-3.8rem",
 					}}>
 					Why Bitmemoir
 				</div>
 
-				<div className="whybitmemoir-content">
+				<div
+					className="whybitmemoir-content"
+					style={{
+						zIndex: "1",
+						position: "relative",
+					}}>
 					<iframe
 						src="https://www.youtube.com"
 						style={{
