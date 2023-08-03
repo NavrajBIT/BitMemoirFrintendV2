@@ -29,6 +29,9 @@ const Navbar = () => {
         <Link className="link" href="/about">
           About
         </Link>
+        <Link className="link" href="/souvenirs">
+        Souvenirs
+        </Link>
       </div>
       <LoginButton />
     </nav>

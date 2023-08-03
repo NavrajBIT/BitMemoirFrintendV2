@@ -9,8 +9,8 @@ const Button = ({ buttonText, btnClicked }) => {
             padding: '1rem',
             width: '25%',
             borderRadius: '4px',
-            marginTop: '1rem',
             margin: buttonText === 'Download' ? '2rem' : '0',
+            marginTop: '1rem !important',
             cursor: 'pointer',
         }} onClick={btnClicked}>
             {buttonText}
