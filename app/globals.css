@@ -16,7 +16,11 @@
 	--primary-90: #003f4c;
 	--primary-100: #0f303e;
 	--primary-110: #001d23;
+	--primary-120: #001e24;
 
+	/* General palette */
+	--success: #00a31a;
+	--danger: #ff0000;
 	/* Neutral Palette */
 	--black-100: #000000;
 	--white-100: #ffffff;
@@ -43,7 +47,7 @@ body {
 
 body {
 	color: var(--text-primary);
-	background-color: var(--primary-110);
+	background-color: var(--primary-120);
 }
 
 a {
