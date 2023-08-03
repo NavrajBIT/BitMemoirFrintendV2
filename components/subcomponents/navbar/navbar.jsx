@@ -20,8 +20,8 @@ const Navbar = () => {
         <Link className="link" href="/mint">
           Issue
         </Link>
-        <Link className="link" href="/view">
-          View
+        <Link className="link" href="/profile">
+          Profile
         </Link>
         <Link className="link" href="/verify">
           Verify

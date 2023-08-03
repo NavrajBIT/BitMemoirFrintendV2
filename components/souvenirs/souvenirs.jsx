@@ -31,14 +31,14 @@ const Souvenirs = () => {
                 background: '#0F303E',
                 height: '50rem',
                 maxWidth: '35rem',
-                width: '90%',
+                width: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
-                borderRadius: '8px',
+               borderRadius: '8px',
                 position: 'relative'
-            }}>
+            }} id="formContainer">
                 <h1 style={{
                     color: 'var(--primary-light)',
                     position: 'absolute',
