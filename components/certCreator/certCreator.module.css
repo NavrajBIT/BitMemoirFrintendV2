@@ -44,7 +44,7 @@
   left: 50px;
   background-color: var(--background-secondary);
   padding: var(--padding-light);
-  text-align: left;
+  text-align: right;
   border-radius: var(--border-radius);
   width: 200px;
   z-index: 1;
@@ -68,4 +68,10 @@
   background-color: var(--text-primary);
   aspect-ratio: 4/3;
   position: relative;
+}
+
+.template-bar{
+  width: 30%;
+  height: 100vh;
+  
 }

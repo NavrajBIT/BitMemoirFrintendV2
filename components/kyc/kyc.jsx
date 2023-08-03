@@ -5,6 +5,7 @@ import KycDetails from "./KycDetails";
 import RepresentativeDetails from "./RepresentativeDetails";
 import ApprovingAuthority from "./ApprovingAuthority";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
+import TextScroller from "../subcomponents/textScroller";
 const Kyc = () => {
 	const [activeTab, setActiveTab] = useState("kyc");
 	const [showTooltip, setShowTooltip] = useState(false);
@@ -20,6 +21,7 @@ const Kyc = () => {
 				position: "relative",
 				minHeight: "100vh",
 			}}>
+			<TextScroller text={"Fill any Dummy Data Here for Accessing other pages (Site under Development)"} />
 			<div
 				className="kyc-background"
 				style={{

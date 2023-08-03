@@ -2,8 +2,10 @@
 import Link from "next/link";
 import { useState } from "react";
 import { AiFillFolderOpen, AiOutlineQuestionCircle } from "react-icons/ai";
+import { useRouter } from "next/navigation";
 
 const ApprovingAuthority = ({ setActiveTab }) => {
+	const router = useRouter();
 	const [uploadedFile, setUploadedFile] = useState("");
 	const handleFileChange = (event) => {
 		const file = event.target.files[0];
@@ -169,7 +171,7 @@ const ApprovingAuthority = ({ setActiveTab }) => {
 					Prev
 				</button>
 				<button
-					type="submit"
+					// type="submit"
 					style={{
 						color: "var(--white-100)",
 						fontSize: "1.25rem",
@@ -178,7 +180,9 @@ const ApprovingAuthority = ({ setActiveTab }) => {
 						borderRadius: "0.3em",
 						backgroundColor: "var(--primary-60)",
 						cursor: "pointer",
-					}}>
+					}}
+					onClick={() => router.push("/certificate")}>
+					
 					Submit
 				</button>
 			</div>

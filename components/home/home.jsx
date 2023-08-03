@@ -1,10 +1,11 @@
+"use client";
 // next
 import Image from "next/image";
 
 // components
-import ProductSuite from "../subcomponents/productSuite/productSuite";
-import FAQ from "../subcomponents/faqs/faqs";
-
+import ProductSuite from "./subcomponents/productSuite/productSuite";
+import FAQ from "./subcomponents/faqs/faqs";
+import TextScroller from "../subcomponents/textScroller";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
 import "./home.css";
@@ -13,6 +14,7 @@ import Button from "../subcomponents/button/button";
 const Home = () => {
 	return (
 		<div style={{ minHeight: "var(--min-height)" }}>
+			<TextScroller text ="Site Under Development" />
 			<section
 				className="hero"
 				style={{

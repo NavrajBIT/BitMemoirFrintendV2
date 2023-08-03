@@ -1,16 +1,21 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import LoginButton from "./loginButton";
 import Button from "../button/button";
 import Navmenu from "../navmenu/navmenu";
+import { useRouter } from "next/navigation";
 import "./navbar.css";
 const Navbar = () => {
+	const router = useRouter();
 	const navMenuItems = [
-		{ name: "Certificates", route: "/mint" },
-		{ name: "NFT", route: "/view" },
-		{ name: "Souvenirs", route: "/verify" },
+		{ name: "Certificates", route: "/certificate" },
+		{ name: "NFT", route: "/nft" },
+		{ name: "Souvenirs", route: "/souvenirs" },
+		{ name: "Verify", route: "/verify" },
 		{ name: "Blog", route: "/blog" },
 		{ name: "About Us", route: "/about" },
+		
 	];
 	return (
 		<nav
@@ -26,7 +31,7 @@ const Navbar = () => {
 				<Image
 					height={23}
 					width={114}
-					src="/assets/bitmemoirlogo.png"
+					src="/assets/logos/bitmemoirlogo.png"
 					alt="BitMemoir"
 				/>
 			</Link>
@@ -73,7 +78,14 @@ const Navbar = () => {
 						borderRadius: "0.3em",
 						cursor: "pointer",
 					}}
+					
+					onClick={() => {
+						router.push("/login");
+					}}
+					
 				/>
+					
+				
 				<Button
 					text={"Get Wallet"}
 					style={{
@@ -85,7 +97,8 @@ const Navbar = () => {
 						backgroundColor: "var(--primary-60)",
 						cursor: "pointer",
 					}}
-				/>
+				>
+				</Button >
 			</div>
 			<span className="navmenu">
 				<Navmenu />

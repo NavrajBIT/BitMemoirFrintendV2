@@ -8,7 +8,7 @@ const ProductSuite = () => {
 		"NFT Loyalty Programme",
 		"Non Custodial Wallet",
 		"Dynamic NFT's",
-		"Unlock new and unique possibilities in the digital realm by enabling unique digital ownership and facilitating seamless transactions with enhanced provenance, scarcity, and programmability.",
+		"Dynamic NFT's",
 		"Skills Passport",
 		"NFT Utilitiy",
 	];

@@ -1,36 +1,38 @@
 "use client";
-
-import useCertCreator from "./useCertCreator";
+import { useState } from "react";
+import SideBar from "./subcomponents/sideBar";
+import Main from "./subcomponents/main";
 import SideToolBar from "./subcomponents/sideToolBar";
-import TopToolBar from "./subcomponents/topToolBar";
-import Template from "./subcomponents/template";
-
+import TextScroller from "../subcomponents/textScroller";
 const CertCreator = () => {
-  const creator = useCertCreator();
-  return (
-    <div
-      style={{ minHeight: "var(--min-height)", padding: "var(--padding-main)" }}
-    >
-      <div style={{ fontSize: "2rem", textAlign: "center" }}>
-        Create New Template
-      </div>
-      <div style={{ width: "100%", display: "flex" }}>
-        <SideToolBar creator={creator} />
+    const [variable, setVariable] = useState("");
+    const [tool, setTool] = useState("");
+    return (
+        <>
+        <TextScroller   text="This page Still under development" />
         <div
-          style={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: "var(--padding-main)",
-          }}
-        >
-          <TopToolBar creator={creator} />
-          <Template creator={creator} />
+        style={{
+            width:"100%" ,
+            display:"flex",
+        }}
+         >
+            <SideBar variable={variable} setVariable={setVariable}
+            tool={tool}
+            setTool={setTool}
+            /> 
+            <Main variable={variable} setVariable={setVariable} 
+            tool={tool}
+            setTool={setTool}
+            />
+            <SideToolBar 
+            tool={tool}
+            setTool={setTool}
+            />
         </div>
-      </div>
-    </div>
-  );
-};
+        </>
+
+    )
+}
+
 
 export default CertCreator;
