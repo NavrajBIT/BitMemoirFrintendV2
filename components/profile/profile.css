@@ -1,0 +1,96 @@
+#profileIcon{
+    height:5rem;
+    margin: 0 2rem;
+}
+#name{
+    display: inline;
+    margin-right: 10px;
+}
+
+#status{
+    color:red;
+    font-size: 12px;
+}
+
+#walletId{
+    margin:10px 0 0;
+    color:var(--primary-light);
+    font-size: 0.8rem;
+}
+
+#profileBtnDiv{
+    /* border:2px solid red; */
+    width:80%;
+    display: flex;
+    justify-content: space-around;
+}
+.profileBtn{
+    border: 1px solid var(--primary-light);
+    background: #012731;
+    color: white;
+    height: 5rem;
+    width: 8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+#filterBtnParent{
+    width: 50%;
+    margin: 2rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+.filterBtn{
+    border: 1px solid var(--primary-light);
+    background: #012731;
+    color: white;
+    font-weight: 600;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.profileBtn:hover, .filterBtn:hover{
+    background: #013F4F;
+}
+
+#dotIcon{
+    height: 1.2rem;
+    filter: invert(1);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+}
+
+/* CERIFICATE CARD */
+
+#certificatesCardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    width: 88%;
+    margin: auto;
+    /* justify-content: center; */
+    gap: 1.5rem;
+}
+.certificateCard{
+    border:1px solid #0A4E61;
+    padding:8px;
+    border-radius: 6px;
+}
+.certificateCard:hover{
+    border:1px solid var(--primary-light);
+}
+.certificateCard img{
+   height:8rem;
+}
+
+#dotIconCard{
+    height: 1.2rem;
+    filter: invert(1);
+    position: absolute;
+    right: -5px;
+    cursor: pointer;
+}
