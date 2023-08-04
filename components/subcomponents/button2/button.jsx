@@ -1,7 +1,7 @@
 import './button.css';
 
 const Button = ({ buttonText, btnClicked }) => {
-    console.log(buttonText);
+    
     return (
         <button style={{
             background: 'var(--primary-60)',

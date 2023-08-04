@@ -5,6 +5,7 @@ import { useState,useEffect } from "react";
 import { useRef} from 'react';
 import Draggable from 'react-draggable';
 import { Resizable } from "re-resizable";
+import ResizeHandle from "./ResizeHandle";
 import QRCode from "react-qr-code";
 
 

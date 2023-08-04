@@ -1,0 +1,26 @@
+#tableContainer {
+    overflow-x: auto;
+}
+
+#tableContainer::-webkit-scrollbar {
+    height: 4px;
+}
+
+td,
+th {
+    /* border: 1px solid #dddddd; */
+    text-align: center;
+    padding: 12px;
+}
+
+tr:nth-child(even) {
+    background-color: #013F4F;
+}
+
+table button {
+    background: var(--primary-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}

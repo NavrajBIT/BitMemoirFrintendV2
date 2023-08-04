@@ -1,0 +1,177 @@
+#profileIcon {
+    height: 5rem;
+    margin: 0 2rem;
+}
+
+#name {
+    display: inline;
+    margin-right: 10px;
+}
+
+#mobileHistoryHead {
+    margin-top: 1rem;
+    display: none;
+}
+
+#status {
+    color: red;
+    font-size: 12px;
+}
+
+#walletId {
+    margin: 10px 0 0;
+    color: var(--primary-light);
+    font-size: 0.8rem;
+}
+
+#profileBtnDiv {
+    /* border:2px solid red; */
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.profileBtn {
+    border: 1px solid var(--primary-50);
+    background: #012731;
+    color: white;
+    height: 5rem;
+    width: 8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.mobileProfileButton {
+    display: none;
+    width:85%;
+    margin: 1rem 0;
+}
+
+.selectBtn {
+    border: 1px solid var(--primary-50);
+    background: #012731;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#filterBtnParent {
+    width: 50%;
+    margin: 2rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.filterBtn {
+    border: 1px solid var(--primary-50);
+    background: #012731;
+    color: white;
+    font-weight: 600;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.profileBtn:hover,
+.filterBtn:hover {
+    background: #013F4F;
+}
+
+#dotIcon {
+    height: 1.2rem;
+    filter: invert(1);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+}
+#copyIcon{
+    height: 1rem;
+    cursor: pointer;
+    margin: 0px 6px -3px;
+}
+
+/* CERIFICATE CARD */
+
+#certificatesCardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 88%;
+    margin: auto;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.certificateCard {
+    border: 1px solid #0A4E61;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.certificateCard:hover {
+    border: 1px solid var(--primary-50);
+}
+
+.certificateCard img {
+    height: 8rem;
+}
+
+#dotIconCard {
+    height: 1.2rem;
+    filter: invert(1);
+    position: absolute;
+    right: -5px;
+    cursor: pointer;
+}
+
+/* MEDIA QUERY */
+
+@media only screen and (max-width:450px) {
+    .selectBtn {
+        width: 10rem;
+    }
+    .filterBtn {
+        padding: 0.8rem 0.5rem;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    #formContainer {
+        width: 100% !important;
+    }
+
+    .profileContOne {
+        justify-content: center !important;
+        text-align: center;
+    }
+
+    #profileIcon {
+        margin: 0 2rem 1rem;
+    }
+
+    .historyHead {
+        display: none !important;
+    }
+
+    #mobileHistoryHead {
+        display: block;
+    }
+
+    .mobileProfileButton {
+        display: block;
+    }
+
+    #profileBtnDiv,
+    #filterBtnParent {
+        display: none;
+    }
+}

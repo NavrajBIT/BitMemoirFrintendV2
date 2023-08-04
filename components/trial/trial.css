@@ -1,0 +1,52 @@
+.trialInput::placeholder {
+	opacity: 0.6;
+	transition: all 0.3s;
+	color: "white" !important;
+}
+.trialInput:focus + .trialLabel,
+.trialInput:not(:placeholder-shown) + .trialLabel {
+	opacity: 0.6 !important;
+}
+.trialInput:focus::placeholder {
+	opacity: 0 !important;
+}
+.trialInput {
+	resize: none;
+}
+
+@media screen and (min-width: 1024px) {
+	.trialForm {
+		flex-direction: row !important;
+	}
+	.trialBackgroundMobile {
+		display: none !important;
+	}
+	.trialBackgroundDesktop {
+		display: block !important;
+	}
+	.trialHero {
+		justify-content: center !important;
+		border-radius: 0.5rem 0 0 0.5rem !important;
+	}
+	.trialHeroHeading {
+		align-self: flex-start !important;
+		text-align: left !important;
+	}
+	.trialHeroText {
+		display: block !important;
+	}
+	.trialHeroImage {
+		display: block !important;
+	}
+	.trialFormElements > :nth-child(1),
+	.trialFormElements > :nth-child(5) {
+		grid-column: 1/2 !important;
+	}
+	.trialFormElements > :nth-child(2),
+	.trialFormElements > :nth-child(6) {
+		grid-column: 2/3 !important;
+	}
+	.trialFormElements {
+		margin: 2rem !important;
+	}
+}

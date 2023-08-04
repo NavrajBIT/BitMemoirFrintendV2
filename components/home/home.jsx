@@ -7,16 +7,18 @@ import ProductSuite from "./subcomponents/productSuite/productSuite";
 import FAQ from "./subcomponents/faqs/faqs";
 import TextScroller from "../subcomponents/textScroller";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { useRouter } from "next/navigation";
+import styles from "./home.module.css";
 
-import "./home.css";
-import Button from "../subcomponents/button/button";
 
 const Home = () => {
+	const router = useRouter();
 	return (
-		<div style={{ minHeight: "var(--min-height)" }}>
+		<div style={{ minHeight: "var(--min-height)" 
+		}}>
 			<TextScroller text ="Site Under Development" />
 			<section
-				className="hero"
+				className={styles.hero}
 				style={{
 					display: "flex",
 					flexDirection: "column",
@@ -36,7 +38,7 @@ const Home = () => {
 						opacity: "0.06",
 						display: "none",
 					}}
-					className="heroBackgroundImage"
+					className={styles.heroBackgroundImage}
 				/>
 
 				<div
@@ -53,7 +55,7 @@ const Home = () => {
 							fontSize: "2.5rem",
 							fontWeight: "700",
 						}}
-						className="heroHeading">
+						className={styles.heroHeading}>
 						BitMemoir <br />
 						for Education
 					</div>
@@ -63,11 +65,11 @@ const Home = () => {
 							fontSize: "1.125rem",
 							color: "var(--primary-50)",
 						}}
-						className="heroSubheading">
+						className={styles.heroSubheading}>
 						Revolutionizing Certification with Blockchain
 					</div>
 					<button
-						className="freeTrialButton"
+						className={styles.freeTrialButton}
 						style={{
 							color: "var(--primary-60)",
 							fontSize: "1.25rem",
@@ -81,7 +83,11 @@ const Home = () => {
 							display: "none",
 							alignItems: "center",
 							gap: "1rem",
-						}}>
+						}}
+						onClick={() => {
+							router.push("/freeTrial");
+						}}
+						>
 						Free Trial <AiOutlineArrowRight />
 					</button>
 				</div>
@@ -91,7 +97,7 @@ const Home = () => {
 					width={300}
 					src={"/assets/images/hero_diamond_3.svg"}
 					alt="heroImage"
-					className="heroDiamondDesktop diamond-1"
+					className={`${styles.heroDiamondDesktop} ${styles.diamond1}`}
 					style={{
 						display: "none",
 						marginBottom: "auto",
@@ -102,7 +108,8 @@ const Home = () => {
 					width={600}
 					src={"/assets/images/hero_diamond_2.svg"}
 					alt="heroImage"
-					className="heroDiamondDesktop diamond-2"
+					
+					className={`${styles.heroDiamondDesktop} ${styles.diamond2}`}
 					style={{
 						display: "none",
 						marginBottom: "auto",
@@ -113,7 +120,7 @@ const Home = () => {
 					width={200}
 					src={"/assets/images/hero_diamond_2.svg"}
 					alt="heroImage"
-					className="heroDiamondDesktop diamond-3"
+					className={`${styles.heroDiamondDesktop} ${styles.diamond3}`}
 					style={{ display: "none", marginBottom: "auto" }}
 				/>
 				<div>
@@ -122,12 +129,12 @@ const Home = () => {
 						width={300}
 						src={"/assets/images/hero_diamond.svg"}
 						alt="heroImage"
-						className="heroDiamondMobile"
+						className={styles.heroDiamondMobile}
 					/>
 				</div>
 			</section>
 			<section
-				className="why-bitmemoir"
+				className="whyBitmemoir"
 				style={{
 					position: "relative",
 					padding: "3rem",
@@ -150,7 +157,7 @@ const Home = () => {
 						mixBlendMode: "multiply",
 					}}></div>
 				<div
-					className="whybitmemoirHeading"
+					className={styles.whybitmemoirHeading}
 					style={{
 						fontSize: "1.5rem",
 						fontWeight: "700",
@@ -158,11 +165,11 @@ const Home = () => {
 						position: "relative",
 						// marginTop: "-3.8rem",
 					}}>
-					Why Bitmemoir
+					Why BitMemoir
 				</div>
 
 				<div
-					className="whybitmemoir-content"
+					className={styles.whybitmemoirContent}
 					style={{
 						zIndex: "1",
 						position: "relative",

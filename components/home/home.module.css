@@ -1,5 +1,5 @@
 @media screen and (min-width: 1024px) {
-	.whybitmemoir-content {
+	.whybitmemoirContent {
 		display: flex;
 		align-items: center;
 		gap: 2rem;
@@ -25,7 +25,7 @@
 	.heroBackgroundImage {
 		display: block !important;
 	}
-	.diamond-2 {
+	.diamond2 {
 		display: block !important;
 	}
 	.heroDiamondMobile {
@@ -36,8 +36,8 @@
 	background-color: var(--white-110) !important;
 }
 @media screen and (min-width: 1200px) {
-	.diamond-3,
-	.diamond-1 {
+	.diamond3,
+	.diamond1 {
 		display: block !important;
 	}
 }

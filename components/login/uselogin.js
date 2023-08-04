@@ -1,3 +1,4 @@
+"use client"
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import API from "../subcomponents/scripts/apiCall";
@@ -55,7 +56,10 @@ const uselogin = () => {
           setStatus(res.error);
         } else {
           router.back();
+          if (typeof window !== 'undefined') {
+
           window.location.reload(true);
+          }
         }
       })
       .catch((err) => {
@@ -83,7 +87,9 @@ const uselogin = () => {
           setStatus(res.error);
         } else {
           router.back();
-          window.location.reload(true);
+          if (typeof window !== 'undefined') {
+            window.location.reload(true);
+          }
         }
       })
       .catch((err) => {
