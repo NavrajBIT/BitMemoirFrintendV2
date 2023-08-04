@@ -12,7 +12,7 @@ const Button = ({ buttonText, btnClicked }) => {
             margin: buttonText === 'Download' ? '2rem' : '0',
             marginTop: '1rem !important',
             cursor: 'pointer',
-        }} onClick={btnClicked}>
+        }} onClick={btnClicked} id="buttonComp">
             {buttonText}
         </button>
     )

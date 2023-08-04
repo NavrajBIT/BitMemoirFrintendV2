@@ -1,4 +1,5 @@
 import CertificateCard from './certificateCard';
+import MobileProfileButton from './mobileProfileButton';
 import './profile.css';
 
 const containerStyle = {
@@ -7,20 +8,21 @@ const containerStyle = {
     maxWidth: '65rem',
     width: '90%',
     display: 'flex',
+    flexWrap: 'wrap',
     alignItems: 'center',
     borderRadius: '8px',
     position: 'relative',
 }
 
-const containerOneStyle={
+const containerOneStyle = {
     ...containerStyle,
     flexDirection: 'row',
-    padding:'2rem 0'
+    padding: '2rem 0'
 }
-const containerTwoStyle={
+const containerTwoStyle = {
     ...containerStyle,
     flexDirection: 'column',
-    padding:'3rem 0'
+    padding: '3rem 0'
 }
 
 const Profile = () => {
@@ -34,15 +36,20 @@ const Profile = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
             }}>
-                <div style={containerOneStyle} id="formContainer">
+                <div style={containerOneStyle} id="formContainer" className='profileContOne'>
                     <img src="/profile/profileIcon.png" alt="" style={{ height: '5rem' }} id="profileIcon" />
                     <div>
                         <h3 id="name">Ankit Bajpai</h3>
                         <span id="status">KYC Pending<sup>*</sup></span>
-                        <div id="walletId">0xd8736941B07e9909a1cf355D6069843D4Ee2C1a5</div>
+                        <div id="walletId">0xd8736941B07e9909a1cf355D6069843D4Ee2C1a5
+                            <img src="/profile/copy2.png" alt="" id="copyIcon" />
+                        </div>
                         <img src="/profile/dots.png" alt="" id="dotIcon" />
                     </div>
                 </div>
+
+                <h2 id="mobileHistoryHead">History</h2>
+                <MobileProfileButton />
 
                 <div style={containerTwoStyle} id="formContainer">
                     <h1 style={{
@@ -50,8 +57,10 @@ const Profile = () => {
                         position: 'absolute',
                         top: '-1rem',
                         left: '3rem',
-                    }} className="formHead"
+                    }} className="historyHead"
                     >History</h1>
+
+
                     <div id="profileBtnDiv">
                         <button className='profileBtn'>Dynamic certificates</button>
                         <button className='profileBtn'>Static certificates</button>
@@ -64,9 +73,10 @@ const Profile = () => {
                         <button className='filterBtn'>Filter</button>
                     </div>
 
+
                     <div id="certificatesCardContainer">
                         {
-                            Array.from({ length: 6 }).map(() => {
+                            Array.from({ length: 8 }).map(() => {
                                 return (
                                     <CertificateCard />
                                 );
