@@ -24,11 +24,12 @@ const Team = () => {
                     backgroundRepeat: 'no-repeat',
                     width: '85%',
                     margin: ' 4rem auto',
-                    padding: '2rem 0',
+                    padding: '3rem 1rem',
                     display: 'flex',
                     justifyContent: 'center',
+                    gap:'3rem',
                     flexWrap: 'wrap',
-                }}>
+                }} className="teamCardDiv">
                     {
                         teamData.map((teamMember, index) => {
                             return (

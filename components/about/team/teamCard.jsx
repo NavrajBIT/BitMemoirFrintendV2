@@ -1,3 +1,5 @@
+import './team.css';
+
 const TeamCard = (props) => {
     return (
         <div style={{
@@ -8,8 +10,8 @@ const TeamCard = (props) => {
             flexDirection: 'column',
             alignItems: 'center',
             padding: '10px 8px',
-            margin: '1.5rem'
-        }}>
+            // margin: '1.5rem'
+        }} className="teamCard">
             <img src={props.img} alt="nikhil" style={{ width: '100%' }} />
             <span style={{ marginTop: "8px" }}>{props.designation}</span>
             <h4 style={{

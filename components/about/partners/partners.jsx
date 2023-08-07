@@ -1,4 +1,5 @@
-import { partnersData } from "./partnersData"
+import { partnersData } from "./partnersData";
+import './partners.css';
 
 const Partners = () => {
   return (
@@ -17,15 +18,16 @@ const Partners = () => {
             border:'1px solid var(--primary-dark)',
             width: '85%',
             margin: ' 4rem auto',
-            padding:'2rem 0',
+            padding:'4rem 2rem',
             display: 'flex',
             justifyContent: 'center',
+            gap:'3.5rem',
             flexWrap: 'wrap',
-        }}>
+        }} className="partnersImgDiv">
             {
                 partnersData.map((partner,index)=>{
                     return(
-                        <img src={partner.img} alt="" style={{margin:'1.5rem'}} key={index}/>
+                        <img src={partner.img} alt="" className="partnersImg" key={index}/>
                     )
                 })
             }

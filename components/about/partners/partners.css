@@ -1,0 +1,26 @@
+/* MEDIA QUERY */
+
+@media (max-width: 600px) {
+    .partnersImgDiv{
+        gap:1.5rem !important;
+        padding:4rem 1rem !important;
+    }
+    .partnersImg{
+        height:8rem;
+    }
+
+}
+@media (max-width: 450px) {
+    .partnersImgDiv{
+        width:95% !important;
+        gap:1rem !important;
+    }
+    .partnersImg{
+        height:6.5rem;
+    }
+}
+@media (min-width: 600px) and (max-width: 992px)  {
+    .partnersImgDiv{
+        gap:2rem !important;
+    }
+}
