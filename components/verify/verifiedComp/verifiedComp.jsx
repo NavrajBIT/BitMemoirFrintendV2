@@ -1,5 +1,5 @@
 import Button from '@/components/subcomponents/button/button'
-import './verifiedComp.css'
+import styles from './verifiedComp.module.css'
 
 const containerStyle = {
     // border: '2px solid red',
@@ -27,7 +27,7 @@ const VerifiedComp = () => {
             justifyContent: 'center',
             margin:'2rem 0'
         }}>
-            <div style={containerStyle} className="container" id="firstContainer">
+            <div style={containerStyle} className={styles.container} id={styles.firstContainer}>
                 <h1 style={{
                     color: 'var(--primary-light)',
                     position: 'absolute',
@@ -37,15 +37,15 @@ const VerifiedComp = () => {
                 }} 
                 >Verified</h1>
                 <div>
-                    <img src="/verify/icon.png" alt="" id="icon" style={{
+                    <img src="/verify/icon.png" alt="" id={styles.icon} style={{
                         height: '6rem',
                     }} />
                 </div>
-                <div className='containerDiv'>
-                    <span>Token ID : </span>
-                    <span style={{ color: 'var(--primary-50)' }}>70</span>
-                    <div className='info'>Contract Address:</div>
-                    <div style={{ color: 'var(--primary-50)' }}>0x88f48ce4fcB67490256edbCd6C45C6Ee57E12d49</div>
+                <div className={styles.containerDiv}>
+                    <span className={styles.text}>Token ID : </span>
+                    <span className={styles.text} style={{ color: 'var(--primary-50)' }}>70</span>
+                    <div className={`${styles.info} ${styles.text}`}>Contract Address:</div>
+                    <div className={styles.text} style={{ color: 'var(--primary-50)' }}>0x88f48ce4fcB67490256edbCd6C45C6Ee57E12d49</div>
                 </div>
             </div>
             <div style={{
@@ -56,14 +56,14 @@ const VerifiedComp = () => {
             }}>
                 <img src="/verify/certificate.png" alt="" style={{ height: '100%', width: '100%' }} />
             </div>
-            <div style={containerStyle} className="container" id="secContainer">
-                <div className='containerDiv'>
-                    <div className='info'>Issued by:</div>
-                    <div style={{ color: 'var(--primary-50)' }}>Beyond Imagination Technologies</div>
-                    <div className='info'>BIT official developer ID</div>
-                    <div style={{ color: 'var(--primary-50)' }}>0x88f48ce4fcB67490256edbCd6C45C6Ee57E12d49</div>
-                    <div className='info'>Recipient Address:</div>
-                    <div style={{ color: 'var(--primary-50)' }}>0x88f48ce4fcB67490256edbCd6C45C6Ee57E12d49</div>
+            <div style={containerStyle} className={styles.container} id={styles.secContainer}>
+                <div className={styles.containerDiv}>
+                    <div className={`${styles.info} ${styles.text}`}>Issued by:</div>
+                    <div className={styles.text} style={{ color: 'var(--primary-50)' }}>Beyond Imagination Technologies</div>
+                    <div className={`${styles.info} ${styles.text}`}>BIT official developer ID</div>
+                    <div className={styles.text} style={{ color: 'var(--primary-50)' }}>0x88f48ce4fcB67490256edbCd6C45C6Ee57E12d49</div>
+                    <div className={`${styles.info} ${styles.text}`}>Recipient Address:</div>
+                    <div className={styles.text} style={{ color: 'var(--primary-50)' }}>0x88f48ce4fcB67490256edbCd6C45C6Ee57E12d49</div>
                 </div>
                 <button style={{
                         background: 'var(--primary-50)',

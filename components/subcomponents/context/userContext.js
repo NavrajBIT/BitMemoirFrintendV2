@@ -7,15 +7,15 @@ const UserContext = createContext();
 
 // Create a provider component that will wrap your app and provide the state and any necessary functions
 export const UserContextProvider = ({ children }) => {
-  const [myState, setMyState] = useState(initialState);
+  const [userDetails, setUserDetails] = useState({});
 
   // Define any functions to update the state if needed
-  const updateState = (newValue) => {
-    setMyState(newValue);
+  const updateUserDetails = (newValue) => {
+    setUserDetails(newValue);
   };
 
   return (
-    <UserContext.Provider value={{ myState, updateState }}>
+    <UserContext.Provider value={{ userDetails, updateUserDetails }}>
       {children}
     </UserContext.Provider>
   );

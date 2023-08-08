@@ -1,12 +1,9 @@
-div,
-span {
+.text {
     font-size: 0.8rem;
 }
 
 .info {
     margin-top: 10px;
-    font-size: 1rem;
-    font-weight: bold;
 }
 
 /* MEDIA QUERY */

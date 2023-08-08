@@ -1,11 +1,13 @@
 "use client";
+
 import { useState } from "react";
-import "./kyc.css";
 import KycDetails from "./KycDetails";
 import RepresentativeDetails from "./RepresentativeDetails";
 import ApprovingAuthority from "./ApprovingAuthority";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import TextScroller from "../subcomponents/textScroller";
+import styles from "./kyc.module.css";
+
 const Kyc = () => {
 	const [activeTab, setActiveTab] = useState("kyc");
 	const [showTooltip, setShowTooltip] = useState(false);
@@ -23,7 +25,7 @@ const Kyc = () => {
 			}}>
 			<TextScroller text={"Fill any Dummy Data Here for Accessing other pages (Site under Development)"} />
 			<div
-				className="kyc-background"
+				className={styles.kyc-background}
 				style={{
 					position: "fixed",
 					top: "0",
@@ -39,7 +41,7 @@ const Kyc = () => {
 					display: "none",
 				}}></div>
 			<div
-				className="kyc-heading-mobile"
+				className={styles.kyc-heading-mobile}
 				style={{
 					fontSize: "1.5rem",
 					color: "var(--primary-50)",
@@ -136,7 +138,7 @@ const Kyc = () => {
 					}}></div>
 			</div>
 			<div
-				className="kyc-heading"
+				className={styles.kyc-heading}
 				style={{
 					fontSize: "1.5rem",
 					color: "var(--primary-50)",
@@ -157,7 +159,7 @@ const Kyc = () => {
 						marginTop: "-0.5rem",
 					}}>
 					<span
-						className="questionCircle"
+						className={styles.questionCircle}
 						style={{
 							fontSize: "1.2rem",
 							cursor: "pointer",
@@ -166,7 +168,7 @@ const Kyc = () => {
 						<AiOutlineQuestionCircle />
 					</span>
 					<span
-						className="tooltip"
+						className={styles.tooltip}
 						style={{
 							position: "absolute",
 							fontSize: "1rem",

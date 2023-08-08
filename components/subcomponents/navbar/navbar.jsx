@@ -6,8 +6,23 @@ import Button from "../button/button";
 import Navmenu from "../navmenu/navmenu";
 import { useRouter } from "next/navigation";
 import "./navbar.css";
+import { useEffect, useState } from "react";
 const Navbar = () => {
+	const [jwtToken, setJwtToken] = useState(null);
+
+	const poppulateJWT = () => {
+	  const token = localStorage.getItem("jwtToken");
+	  setJwtToken(token);
+	};
+  
+	useEffect(() => {
+	  poppulateJWT();
+	});
+
+	
 	const router = useRouter();
+
+
 	const navMenuItems = [
 		{ name: "Certificates", route: "/certificate" },
 		{ name: "NFT", route: "/nft" },
@@ -68,8 +83,8 @@ const Navbar = () => {
 					justifyContent: "center",
 					display: "none",
 				}}>
-				<Button
-					text={"Sign Up"}
+				{jwtToken ?<Button
+					text={"Log out"}
 					style={{
 						color: "var(--white-100)",
 						fontSize: "1.25rem",
@@ -80,10 +95,30 @@ const Navbar = () => {
 					}}
 					
 					onClick={() => {
+						localStorage.removeItem("jwtToken");
+						localStorage.removeItem("jwtRefresh");
+						localStorage.removeItem("userDetails");
+						setJwtToken(null);
 						router.push("/login");
 					}}
 					
-				/>
+				/>:
+				<Button
+				text={"Sign Up"}
+				style={{
+					color: "var(--white-100)",
+					fontSize: "1.25rem",
+					padding: "0.5em 1.2em",
+					border: "1px solid var(--primary-60)",
+					borderRadius: "0.3em",
+					cursor: "pointer",
+				}}
+				
+				onClick={() => {
+					router.push("/login");
+				}}
+				
+			/>}
 					
 				
 				<Button

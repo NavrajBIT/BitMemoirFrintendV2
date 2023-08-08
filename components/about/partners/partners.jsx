@@ -1,4 +1,5 @@
-import { partnersData } from "./partnersData"
+import { partnersData } from "./partnersData";
+import styles from '../team/team.module.css';
 
 const Partners = () => {
   return (
@@ -12,7 +13,7 @@ const Partners = () => {
             top:'4.6rem',
             left:'10rem',
             color:"var(--primary-light)",
-        }} className="teamHead">Our Partners</h1>
+        }} className={styles.teamHead}>Our Partners</h1>
         <div style={{
             border:'1px solid var(--primary-dark)',
             width: '85%',

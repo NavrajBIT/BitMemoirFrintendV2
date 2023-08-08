@@ -1,5 +1,8 @@
+"use client";
 import CertificateCard from './certificateCard';
 import MobileProfileButton from './mobileProfileButton';
+import { useContext, useEffect, useState } from 'react';
+import UserContext from '../subcomponents/context/userContext';
 import './profile.css';
 
 const containerStyle = {
@@ -26,6 +29,31 @@ const containerTwoStyle = {
 }
 
 const Profile = () => {
+    const [userDetails, setUserDetails] = useState({
+        first_name: "",
+        last_name: "",
+        email: "",
+        wallet_address: "",
+        phone_number: "",
+        country: "",
+        state: "",
+
+    });
+
+    const populateUser = () => {
+      const storedUserDetails = localStorage.getItem("userDetails");
+      
+      if (storedUserDetails) {
+        const parsedUserDetails = JSON.parse(storedUserDetails);
+        setUserDetails(parsedUserDetails);
+        console.log(parsedUserDetails);
+      }
+    };
+    
+    useEffect(() => {
+      populateUser();
+    }, []);
+
     return (
         <>
             <div style={{
@@ -41,12 +69,14 @@ const Profile = () => {
                 <div style={containerOneStyle} id="formContainer" className='profileContOne'>
                     <img src="/profile/profileIcon.png" alt="" style={{ height: '5rem' }} id="profileIcon" />
                     <div>
-                        <h3 id="name">Ankit Bajpai</h3>
+                        <h3 id="name">{userDetails.first_name+" "+ userDetails.last_name }</h3>
                         <span id="status">KYC Pending<sup>*</sup></span>
                         <div id="walletId">0xd8736941B07e9909a1cf355D6069843D4Ee2C1a5
                             <img src="/profile/copy2.png" alt="" id="copyIcon" />
                         </div>
                         <img src="/profile/dots.png" alt="" id="dotIcon" />
+
+                        
                     </div>
                 </div>
 

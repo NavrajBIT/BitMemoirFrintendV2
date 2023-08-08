@@ -2,9 +2,11 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import API from "../subcomponents/scripts/apiCall";
-
+import { useContext } from 'react';
+import UserContext from "../subcomponents/context/userContext";
 const uselogin = () => {
   const api = API();
+  const { userDetails, updateUserDetails } = useContext(UserContext);
   const router = useRouter();
   const [signUp, setSignUp] = useState(false);
   const [status, setStatus] = useState("");
@@ -89,19 +91,13 @@ const uselogin = () => {
         password: data.Password,
       })
       .then((res) => {
-        console.log(res);
         if (res.error) {
           setStatus(res.error);
         } else {
-          localStorage.setItem("jwtToken", res.access);
-
-
-
-
-          // router.back();
-          // if (typeof window !== 'undefined') {
-          //   window.location.reload(true);
-          // }
+          updateUserDetails(res);
+          // console.log(res);
+          localStorage.setItem("userDetails", JSON.stringify(res));
+          router.push("/profile");
         }
       })
       .catch((err) => {
@@ -109,6 +105,8 @@ const uselogin = () => {
       });
     setIsLoading(false);
   };
+
+
 
   const signupSubmit = async (data) => {
     setStatus("");
@@ -128,10 +126,7 @@ const uselogin = () => {
         if (res.error) {
           setStatus(res.error);
         } else {
-          // router.back();
-          // if (typeof window !== 'undefined') {
-          //   window.location.reload(true);
-          // }
+          localStorage.setItem("userId", res.id);
           router.push("/login/completeYourProfile");
         }
       })
@@ -149,7 +144,7 @@ const uselogin = () => {
     setIsLoading(true);
     await api
       .completeYourProfile({
-        user:2,
+        user: localStorage.getItem("userId"),
         first_name: data["First Name"],
         last_name: data["Last Name"],
         email: data["Email"],
@@ -164,10 +159,7 @@ const uselogin = () => {
         if (res.error) {
           setStatus(res.error);
         } else {
-          router.back();
-          if (typeof window !== 'undefined') {
-          // window.location.reload(true);
-          }
+          router.push("/login");
         }
       })
       .catch((err) => {
@@ -180,7 +172,7 @@ const uselogin = () => {
 
 
 
-  const authApI = async (accessToken, label) => {
+  const authApI = async (accessToken, label,provider) => {
     await fetch('http://127.0.0.1:8000/user/auth/', {
       method: 'POST',
       headers: {
@@ -188,7 +180,7 @@ const uselogin = () => {
       },
       body: JSON.stringify({
         access_token: accessToken,
-        provider:"google-oauth2"
+        provider:provider
       }),
     })
       .then((response) => response.json())
@@ -199,13 +191,15 @@ const uselogin = () => {
           localStorage.setItem("token", data.token);
           router.push("/login/completeYourProfile");
         }else{
-          localStorage.setItem("token", data.token);
+          localStorage.setItem("jwtToken", data.token);
           api.getProfile().then((res) => {
             console.log(res);
             if (res.error) {
               setStatus(res.error);
             } else {
-             console.log(res);
+              updateUserDetails(res);
+              localStorage.setItem("userDetails", JSON.stringify(res));
+              router.push("/profile");
             }
           }).catch((err) => {
             setStatus("Something went wrong. Please try again.");

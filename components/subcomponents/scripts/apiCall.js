@@ -64,35 +64,44 @@ const API = () => {
     }
   }
 
-  async function getToken(data) {
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: data ? JSON.stringify(data) : undefined,
-    };
+async function getToken(data) {
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: data ? JSON.stringify(data) : undefined,
+  };
 
-    try {
-      const response = await fetch(API_URL + "token/", requestOptions);
-      const responseData = await response.json();
+  try {
+    const response = await fetch(API_URL + "token/", requestOptions);
+    const responseData = await response.json();
 
-      if (
-        responseData["detail"] &&
-        responseData["detail"] ===
-          "No active account found with the given credentials"
-      ) {
-        return { error: "Invalid credentials." };
-      } else {
-        localStorage.setItem("jwtToken", responseData.access);
-        localStorage.setItem("jwtRefresh", responseData.refresh);
-        return responseData;
-      }
-    } catch (error) {
-      console.log("API call error:", error);
-      throw error;
+    if (responseData["detail"] &&
+      responseData["detail"] === "No active account found with the given credentials") {
+      return { error: "Invalid credentials." };
+    } else {
+      localStorage.setItem("jwtToken", responseData.access);
+      localStorage.setItem("jwtRefresh", responseData.refresh);
+      console.log(responseData);
+      
+      const userResponse = await fetch(API_URL + "user/userDetails", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${responseData.access}`,
+        },
+      });
+  
+      const userResponseData = await userResponse.json();
+      console.log(userResponseData);
+      return userResponseData;
     }
+  } catch (error) {
+    console.log("API call error:", error);
+    throw error;
   }
+}
 
   async function refreshToken() {
     const refreshKey = localStorage.getItem("jwtRefresh");
@@ -124,31 +133,28 @@ const API = () => {
     }
   }
 
-  async function completeYourProfile(data) {
+async function completeYourProfile(data) {
+  try {
     const requestOptions = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${jwtToken}`,
       },
-      body: data ? JSON.stringify(data) : undefined,
+      body: JSON.stringify(data),
     };
 
-    try {
-      const response = await fetch(
-        API_URL + "user/account/",
-        requestOptions
-      );
-      const responseData = await response.json();
-      console.log(responseData);
-      return responseData;
-    } catch (error) {
-      console.log("API call error:", error);
-      throw error;
-    }
+    const response = await fetch(`${API_URL}user/account/`, requestOptions);
+    return await response.json();
+  } catch (error) {
+    console.log("API call error:", error);
+    throw error;
   }
+}
 
-  async function getProfile() {
+async function getProfile() {
+  try {
+    console.log(jwtToken);
     const requestOptions = {
       method: "GET",
       headers: {
@@ -157,16 +163,15 @@ const API = () => {
       },
     };
 
-    try {
-      const response = await fetch(API_URL + "user/account/4", requestOptions);
-      const responseData = await response.json();
-      console.log(responseData);
-      return responseData;
-    } catch (error) {
-      console.log("API call error:", error);
-      throw error;
-    }
+    const response = await fetch(API_URL + "user/userDetails", requestOptions);
+    const responseData = await response.json();
+    console.log(responseData);
+    return responseData;
+  } catch (error) {
+    console.log("API call error:", error);
+    throw error;
   }
+}
 
 
 

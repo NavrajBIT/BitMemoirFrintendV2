@@ -3,7 +3,6 @@
 import { GoogleOAuthProvider, GoogleLogin,useGoogleLogin } from '@react-oauth/google';
 import { useEffect, useState } from 'react';
 import { GoogleLoginButton } from "react-social-login-buttons";
-import { useRouter } from 'next/navigation';
 import uselogin from "./uselogin";
 // import { GoogleLogin, GoogleLogout } from "react-google-login";
 
@@ -15,7 +14,7 @@ const GoogleAuthentication = ({label}) => {
 
   useEffect(() => {
     if (accessToken) {
-      loginscript.authApI(accessToken,label);
+      loginscript.authApI(accessToken,label,"google-oauth2");
     }
     // console.log(accessToken);
   }, [accessToken]);

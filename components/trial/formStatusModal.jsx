@@ -1,6 +1,7 @@
 import { BiSolidError } from "react-icons/bi";
 import Image from "next/image";
 import Link from "next/link";
+
 const FormStatusModal = ({ success, setShowFormStatusModal }) => {
 	return (
 		<div
