@@ -10,7 +10,6 @@ const Footer = () => {
 			className="footer"
 			style={{
 				backgroundColor: "var(--primary-100)",
-				marginTop: "4rem",
 				paddingBottom: "2rem",
 				display: "block",
 				gridTemplateColumns: "1fr auto",

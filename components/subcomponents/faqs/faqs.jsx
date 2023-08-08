@@ -34,7 +34,7 @@ const FAQ = () => {
 			style={{
 				backgroundColor: "var(--primary-100)",
 				position: "relative",
-				marginTop: "0rem",
+				marginBottom: "4rem",
 			}}>
 			<div
 				className="faqsHeading"
