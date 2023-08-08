@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import LoginButton from "./loginButton";
 import Button from "../button/button";
 import Navmenu from "../navmenu/navmenu";
 import "./navbar.css";
@@ -74,8 +73,8 @@ const Navbar = () => {
 						cursor: "pointer",
 					}}
 				/>
-				<Button
-					text={"Get Wallet"}
+				<Link
+					href={"/getWallet"}
 					style={{
 						color: "var(--white-100)",
 						fontSize: "1.25rem",
@@ -84,8 +83,9 @@ const Navbar = () => {
 						borderRadius: "0.3em",
 						backgroundColor: "var(--primary-60)",
 						cursor: "pointer",
-					}}
-				/>
+					}}>
+					Get Wallet
+				</Link>
 			</div>
 			<span className="navmenu">
 				<Navmenu />

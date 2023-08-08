@@ -7,7 +7,6 @@ import Link from "next/link";
 import { useState } from "react";
 
 // components
-import LoginButton from "../navbar/loginButton";
 import Button from "@/components/subcomponents/button/button";
 
 const Navmenu = () => {
@@ -89,8 +88,8 @@ const Navmenu = () => {
 							borderRadius: "0.3em",
 						}}
 					/>
-					<Button
-						text={"Get Wallet"}
+					<Link
+						href={"/getWallet"}
 						style={{
 							color: "var(--white-100)",
 							fontSize: "1.25rem",
@@ -98,8 +97,9 @@ const Navmenu = () => {
 							border: "1px solid var(--primary-60)",
 							borderRadius: "0.3em",
 							backgroundColor: "var(--primary-60)",
-						}}
-					/>
+						}}>
+						Get Wallet
+					</Link>
 				</div>
 			</nav>
 		</div>
