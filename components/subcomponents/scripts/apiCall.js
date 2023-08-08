@@ -124,7 +124,55 @@ const API = () => {
     }
   }
 
-  return { crud, createUser, jwtToken, getToken, refreshToken };
+  async function completeYourProfile(data) {
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${jwtToken}`,
+      },
+      body: data ? JSON.stringify(data) : undefined,
+    };
+
+    try {
+      const response = await fetch(
+        API_URL + "user/account/",
+        requestOptions
+      );
+      const responseData = await response.json();
+      console.log(responseData);
+      return responseData;
+    } catch (error) {
+      console.log("API call error:", error);
+      throw error;
+    }
+  }
+
+  async function getProfile() {
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    };
+
+    try {
+      const response = await fetch(API_URL + "user/account/4", requestOptions);
+      const responseData = await response.json();
+      console.log(responseData);
+      return responseData;
+    } catch (error) {
+      console.log("API call error:", error);
+      throw error;
+    }
+  }
+
+
+
+
+
+  return { crud, createUser, jwtToken, getToken, refreshToken,completeYourProfile ,getProfile};
 };
 
 export default API;

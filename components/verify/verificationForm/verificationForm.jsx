@@ -1,11 +1,21 @@
 "use client"
-
-import Input from '@/components/subcomponents/form/input';
-import Button from '@/components/subcomponents/button/button';
-import './verificationForm.css';
 import TextScroller from '@/components/subcomponents/textScroller';
+import Form from '@/components/subcomponents/form/form';
+import { useState } from 'react';
 const VerificationForm = ({setIsVerified}) => {
-
+    const [status, setStatus] = useState('');
+    const verifyDataForm = [
+        {
+          type: "text",
+          label: "Contract Address",
+          required: true,
+        },
+        {
+          type: "text",
+          label: "Token ID",
+          required: true,
+        },
+      ];
     const btnClicked=()=>{
         console.log('btn click');
         setIsVerified(true)
@@ -19,42 +29,16 @@ const VerificationForm = ({setIsVerified}) => {
                 alignItems: 'center',
                 justifyContent: 'center',
             }}>
-                
-                <div style={{
-                    // border:'2px solid red',
-                    background: '#0F303E',
-                    height: '20rem',
-                    maxWidth: '35rem',
-                    width: '90%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderRadius: '8px',
-                    position: 'relative'
-                }} id="formContainer">
-                    <h1 style={{
-                        color: 'var(--primary-light)',
-                        position: 'absolute',
-                        top: '-1rem',
-                        left: '3rem',
-                    }} className="formHead"
-                    >Verify Certificate</h1>
-                    <Input placeholder="Contract Address"/>
-                    <Input placeholder="Token ID"/>
-                    <button style={{
-                        background: 'var(--primary-50)',
-                        color: 'white',
-                        padding: '1rem',
-                        width: '25%',
-                        borderRadius: '4px',
-                        marginTop: '1rem',
-                        // margin: "2rem",
-                        cursor: 'pointer',
-                    }} onClick={btnClicked}>
-                        Verify
-                    </button>
-                </div>
+
+                <Form
+                        formTitle={"Verify Certificate"}
+                        formData={verifyDataForm}
+                        handleSubmit={btnClicked}
+                        formButton={"Verify"}
+                        status={status}
+                        bgImage={false}
+                />
+
             </div>
         </>
     )

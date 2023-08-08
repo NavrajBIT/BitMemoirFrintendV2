@@ -11,6 +11,7 @@ const Form = ({
   status,
   isLoading,
   children,
+  bgImage
 }) => {
   const submitForm = (e) => {
     e.preventDefault();
@@ -21,8 +22,15 @@ const Form = ({
     handleSubmit(submitResults);
   };
 
+  if(!bgImage){
+    var formcontainerStyle ={
+      backgroundColor: "#0F303E",
+      backgroundImage: "None",
+    }
+  }
+
   return (
-    <div className={style.formcontainer}>
+    <div className={style.formcontainer} style={formcontainerStyle}>
       <div className={style.formoverlay} />
       {formTitle && <div className={style.formTitle}>{formTitle}</div>}
       <form onSubmit={submitForm} className={style.myform}>

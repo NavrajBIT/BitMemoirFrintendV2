@@ -18,6 +18,7 @@ const UserLogin = ({ useLogin }) => {
         handleSubmit={useLogin.loginSubmit}
         formButton={"Log In"}
         status={useLogin.status}
+        bgImage={true}
       >
         <div
           style={{
@@ -28,8 +29,10 @@ const UserLogin = ({ useLogin }) => {
             gap: "var(--padding-main)",
           }}
         >
-          <GoogleAuthentication />
-          <FacebookOAuth />
+          <div style={{ width: "70%" }}>
+          <GoogleAuthentication label={"Log In"}/>
+          <FacebookOAuth label={"Log In"}/>
+          </div>
           Don&apos;t have an account?
           <div style={{ width: "40%" }}>
             <Button

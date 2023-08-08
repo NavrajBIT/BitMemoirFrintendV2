@@ -1,5 +1,7 @@
 import Form from "../subcomponents/form/form";
 import Button from "../subcomponents/button/button";
+import GoogleAuthentication from "./googleLogin";
+import FacebookOAuth from "./facebookLogin";
 
 const UserSignUp = ({ useLogin }) => {
   return (
@@ -18,6 +20,7 @@ const UserSignUp = ({ useLogin }) => {
         handleSubmit={useLogin.signupSubmit}
         status={useLogin.status}
         isLoading={useLogin.isLoading}
+        bgImage={true}
       >
         <div
           style={{
@@ -28,6 +31,10 @@ const UserSignUp = ({ useLogin }) => {
             gap: "var(--padding-main)",
           }}
         >
+          <div style={{ width: "70%" }}>
+            <GoogleAuthentication  label ="Sign Up"/>
+            <FacebookOAuth label =" Sign Up "/>
+          </div>
           Already have an account?
           <div style={{ width: "50%" }}>
             <Button
