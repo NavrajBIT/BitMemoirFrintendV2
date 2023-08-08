@@ -1,4 +1,4 @@
-import './input.css';
+import styles from './input.module.css';
 
 const inputStyle = {
     maxWidth: '70%',
@@ -11,7 +11,7 @@ const inputStyle = {
 }
 const Input = ({ placeholder }) => {
     return (
-        <input type="text" placeholder={placeholder} style={inputStyle} className="input"/>
+        <input type="text" placeholder={placeholder} style={inputStyle} className={styles.input} />
     )
 }
 

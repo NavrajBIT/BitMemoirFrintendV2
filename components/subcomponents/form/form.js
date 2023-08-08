@@ -1,7 +1,7 @@
 "use client";
-import style from "./form.module.css";
 import { Children, useRef, useState } from "react";
 import Button from "../button/button";
+import style from "./form.module.css";
 
 const Form = ({
   formTitle,

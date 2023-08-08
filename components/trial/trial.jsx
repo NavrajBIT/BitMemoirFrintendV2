@@ -1,9 +1,10 @@
 "use client";
 
-import "./trial.css";
 import { useState } from "react";
 import FormStatusModal from "./formStatusModal";
 import Image from "next/image";
+import styles from "./trial.module.css";
+
 const Trial = () => {
 	const formElements = [
 		{ name: "FirstName", required: true },
@@ -32,7 +33,7 @@ const Trial = () => {
 				/>
 			)}
 			<div
-				className="trialBackgroundMobile"
+				className={styles.trialBackgroundMobile}
 				style={{
 					position: "fixed",
 					top: "0",
@@ -49,7 +50,7 @@ const Trial = () => {
 					display: "none",
 				}}></div>
 			<form
-				className="trialForm"
+				className={styles.trialForm}
 				style={{
 					display: "flex",
 					flexDirection: "column",
@@ -61,7 +62,7 @@ const Trial = () => {
 					overflow: "hidden",
 				}}>
 				<div
-					className="trialBackgroundDesktop"
+					className={styles.trialBackgroundDesktop}
 					style={{
 						position: "absolute",
 						// top: "0",
@@ -79,7 +80,7 @@ const Trial = () => {
 						display: "none",
 					}}></div>
 				<div
-					className="trialHero"
+					className={styles.trialHero}
 					style={{
 						backgroundColor: "var(--white-100)",
 						color: "var(--primary-90)",
@@ -91,7 +92,7 @@ const Trial = () => {
 						flexBasis: "50%",
 					}}>
 					<div
-						className="trialHeroHeading"
+						className={styles.trialHeroHeading}
 						style={{
 							textAlign: "center",
 						}}>
@@ -105,7 +106,7 @@ const Trial = () => {
 						</div>
 					</div>
 					<div
-						className="trialHeroText"
+						className={styles.trialHeroText}
 						style={{
 							color: "var(--primary-90)",
 							textAlign: "justify",
@@ -123,7 +124,7 @@ const Trial = () => {
 						b4914600112ba18af7798b6c1a1363728ae1d96f4914600112ba18af7798b6c1a1363728ae1d96f4914600112ba18af7798b6c1a1363728ae1d96f4914600112ba18af7798b6c14600112ba18af7798
 					</div>
 					<Image
-						className="trialHeroImage"
+						className={styles.trialHeroImage}
 						src={"/assets/images/lock.png"}
 						height={200}
 						width={150}
@@ -136,7 +137,7 @@ const Trial = () => {
 					/>
 				</div>
 				<div
-					className="trialFormElements"
+					className={styles.trialFormElements}
 					style={{
 						flexBasis: "50%",
 						display: "grid",
@@ -155,8 +156,7 @@ const Trial = () => {
 								<input
 									required={formElement.required}
 									type="text"
-									id="name"
-									className="trialInput"
+									className={styles.trialInput}
 									style={{
 										padding: "1rem",
 										backgroundColor: "var(--primary-90)",
@@ -173,7 +173,7 @@ const Trial = () => {
 								/>
 								<label
 									htmlFor="name"
-									className="trialLabel"
+									className={styles.trialLabel}
 									style={{
 										fontSize: "0.8rem",
 										transition: "all 0.3s",

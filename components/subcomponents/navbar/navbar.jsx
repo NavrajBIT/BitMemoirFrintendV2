@@ -5,7 +5,8 @@ import LoginButton from "./loginButton";
 import Button from "../button/button";
 import Navmenu from "../navmenu/navmenu";
 import { useRouter } from "next/navigation";
-import "./navbar.css";
+import styles from "./navbar.module.css";
+
 const Navbar = () => {
 	const router = useRouter();
 	const navMenuItems = [
@@ -36,7 +37,7 @@ const Navbar = () => {
 				/>
 			</Link>
 			<div
-				className="navitems"
+				className={styles.navitems}
 				style={{
 					display: "none",
 					gap: "2rem",
@@ -45,7 +46,7 @@ const Navbar = () => {
 				{navMenuItems.map((item, index) => {
 					return (
 						<Link
-							className="link"
+							className={styles.link}
 							href={item.route}
 							key={index}
 							style={{
@@ -60,7 +61,7 @@ const Navbar = () => {
 				})}
 			</div>
 			<div
-				className="navitems"
+				className={styles.navitems}
 				style={{
 					alignItems: "center",
 					display: "flex",
@@ -82,10 +83,8 @@ const Navbar = () => {
 					onClick={() => {
 						router.push("/login");
 					}}
-					
 				/>
 					
-				
 				<Button
 					text={"Get Wallet"}
 					style={{
@@ -100,7 +99,7 @@ const Navbar = () => {
 				>
 				</Button >
 			</div>
-			<span className="navmenu">
+			<span className={styles.navmenu}>
 				<Navmenu />
 			</span>
 		</nav>

@@ -3,11 +3,12 @@ import Link from "next/link";
 import { AiOutlineTwitter, AiOutlineMail } from "react-icons/ai";
 import { BiLogoTelegram } from "react-icons/bi";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
-import "./footer.css";
+import styles from "./footer.module.css";
+
 const Footer = () => {
 	return (
 		<section
-			className="footer"
+			className={styles.footer}
 			style={{
 				backgroundColor: "var(--primary-100)",
 				marginTop: "4rem",
@@ -16,7 +17,7 @@ const Footer = () => {
 				gridTemplateColumns: "1fr auto",
 			}}>
 			<div
-				className="footerHeading"
+				className={styles.footerHeading}
 				style={{
 					color: "var(--primary-50)",
 					fontSize: "1.5rem",
@@ -40,7 +41,7 @@ const Footer = () => {
 					Location :
 				</div>
 				<div
-					className="footerLocation"
+					className={styles.footerLocation}
 					style={{
 						fontSize: "0.875rem",
 						marginTop: "0.5rem",
@@ -53,7 +54,7 @@ const Footer = () => {
 				</div>
 			</div>
 			<div
-				className="supportEmails"
+				className={styles.supportEmails}
 				style={{
 					fontSize: "1rem",
 					margin: "2rem 2rem",

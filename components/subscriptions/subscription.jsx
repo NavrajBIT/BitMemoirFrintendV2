@@ -1,6 +1,6 @@
 import Button from '../subcomponents/button/button';
 import SubscriptionCard from './subscriptionCard';
-import './subscription.css';
+import styles from './subscription.module.css';
 
 const containerStyle = {
     // border:'2px solid red',
@@ -31,17 +31,17 @@ const Subscription = () => {
             alignItems: 'center',
             justifyContent: 'center',
         }}>
-            <div style={containerStyle} id="subscriptionContainer">
+            <div style={containerStyle} id={styles.subscriptionContainer}>
                 <h1 style={{
-                    color: 'var(--primary-light)',
+                    color: 'var(--primary-50)',
                     position: 'absolute',
                     top: 0,
                     left: '50%',
                     transform: 'translate(-50%,-50%)',
-                }} className="subscriptionHead"
+                }} className={styles.subscriptionHead}
                 >Subscription Plans
                 </h1>
-                <div id="subscriptionCardsDiv">
+                <div id={styles.subscriptionCardsDiv}>
                     {
                         subscriptionData.map((plan) => {
                             return (

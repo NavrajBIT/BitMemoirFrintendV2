@@ -4,18 +4,10 @@ import Button from "../subcomponents/button/button";
 import Form from "../subcomponents/form/form";
 import uselogin from "./uselogin";
 
-
-
-
 const SignUpForm = () => {
-
-    const useLogin = uselogin();
-
-
-
-
-return(
-<div
+  const useLogin = uselogin();
+  return (
+    <div
       style={{
         minHeight: "var(--min-height-screen)",
         display: "flex",
@@ -32,10 +24,10 @@ return(
         isLoading={useLogin.isLoading}
         bgImage={true}
       >
-        
+
       </Form>
     </div>
-    )
+  )
 
 }
 

@@ -1,6 +1,7 @@
+import { style } from '@mui/system';
 import CertificateCard from './certificateCard';
 import MobileProfileButton from './mobileProfileButton';
-import './profile.css';
+import styles from './profile.module.css';
 
 const containerStyle = {
     // border:'2px solid red',
@@ -38,45 +39,45 @@ const Profile = () => {
                 // backgroundImage: url('/about/about-bg.png')
                 // backgroundImage: 'url("/about/about-bg.png")',
             }}>
-                <div style={containerOneStyle} id="formContainer" className='profileContOne'>
-                    <img src="/profile/profileIcon.png" alt="" style={{ height: '5rem' }} id="profileIcon" />
+                <div style={containerOneStyle} id={styles.formContainer} className={styles.profileContOne}>
+                    <img src="/profile/profileIcon.png" alt="" style={{ height: '5rem' }} id={styles.profileIcon} />
                     <div>
-                        <h3 id="name">Ankit Bajpai</h3>
-                        <span id="status">KYC Pending<sup>*</sup></span>
-                        <div id="walletId">0xd8736941B07e9909a1cf355D6069843D4Ee2C1a5
-                            <img src="/profile/copy2.png" alt="" id="copyIcon" />
+                        <h3 id={styles.name}>Ankit Bajpai</h3>
+                        <span id={styles.status}>KYC Pending<sup>*</sup></span>
+                        <div id={styles.walletId}>0xd8736941B07e9909a1cf355D6069843D4Ee2C1a5
+                            <img src="/profile/copy2.png" alt="" id={styles.copyIcon} />
                         </div>
-                        <img src="/profile/dots.png" alt="" id="dotIcon" />
+                        <img src="/profile/dots.png" alt="" id={styles.dotIcon} />
                     </div>
                 </div>
 
-                <h2 id="mobileHistoryHead">History</h2>
+                <h2 id={styles.mobileHistoryHead}>History</h2>
                 <MobileProfileButton />
 
-                <div style={containerTwoStyle} id="formContainer">
+                <div style={containerTwoStyle} id={styles.formContainer}>
                     <h1 style={{
                         color: 'var(--primary-light)',
                         position: 'absolute',
                         top: '-1rem',
                         left: '3rem',
-                    }} className="historyHead"
+                    }} className={styles.historyHead}
                     >History</h1>
 
 
-                    <div id="profileBtnDiv">
-                        <button className='profileBtn'>Dynamic certificates</button>
-                        <button className='profileBtn'>Static certificates</button>
-                        <button className='profileBtn'>NFTs</button>
-                        <button className='profileBtn'>Souvenirs</button>
-                        <button className='profileBtn'>Loyalty Programs</button>
+                    <div id={styles.profileBtnDiv}>
+                        <button className={styles.profileBtn}>Dynamic certificates</button>
+                        <button className={styles.profileBtn}>Static certificates</button>
+                        <button className={styles.profileBtn}>NFTs</button>
+                        <button className={styles.profileBtn}>Souvenirs</button>
+                        <button className={styles.profileBtn}>Loyalty Programs</button>
                     </div>
-                    <div id="filterBtnParent">
-                        <button className='filterBtn'>Sort</button>
-                        <button className='filterBtn'>Filter</button>
+                    <div id={styles.filterBtnParent}>
+                        <button className={styles.filterBtn}>Sort</button>
+                        <button className={styles.filterBtn}>Filter</button>
                     </div>
 
 
-                    <div id="certificatesCardContainer">
+                    <div id={styles.certificatesCardContainer}>
                         {
                             Array.from({ length: 8 }).map((index) => {
                                 return (

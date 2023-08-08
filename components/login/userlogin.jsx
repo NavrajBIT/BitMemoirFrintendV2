@@ -2,6 +2,7 @@ import Form from "../subcomponents/form/form";
 import Button from "../subcomponents/button/button";
 import GoogleAuthentication from "./googleLogin";
 import FacebookOAuth from "./facebookLogin";
+
 const UserLogin = ({ useLogin }) => {
   return (
     <div
@@ -30,8 +31,8 @@ const UserLogin = ({ useLogin }) => {
           }}
         >
           <div style={{ width: "70%" }}>
-          <GoogleAuthentication label={"Log In"}/>
-          <FacebookOAuth label={"Log In"}/>
+            <GoogleAuthentication label={"Log In"} />
+            <FacebookOAuth label={"Log In"} />
           </div>
           Don&apos;t have an account?
           <div style={{ width: "40%" }}>

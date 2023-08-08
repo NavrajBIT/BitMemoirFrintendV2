@@ -1,5 +1,5 @@
 import Image from "next/image";
-import "./productSuite.css";
+import styles from "./productSuite.module.css";
 const ProductSuite = () => {
 	const products = [
 		"Authentication and Verification",
@@ -14,7 +14,7 @@ const ProductSuite = () => {
 	];
 	return (
 		<section
-			className="productSuiteContainer"
+			className={styles.productSuiteContainer}
 			style={{
 				display: "flex",
 				alignItems: "center",
@@ -24,7 +24,7 @@ const ProductSuite = () => {
 				marginBottom: "4rem",
 			}}>
 			<div
-				className="productSuiteBackground"
+				className={styles.productSuiteBackground}
 				style={{
 					backgroundRepeat: "no-repeat",
 					backgroundSize: "contain",
@@ -46,7 +46,7 @@ const ProductSuite = () => {
 					src={"/assets/images/productSuiteBackgroundImage.png"}
 					fill
 					alt="productSuiteBackground"
-					className="productSuiteBackgroundImage"
+					className={styles.productSuiteBackgroundImage}
 					style={{
 						display: "none",
 					}}
@@ -65,7 +65,7 @@ const ProductSuite = () => {
 				Product Suite
 			</div>
 			<div
-				className="productSuiteDesktop"
+				className={styles.productSuiteDesktop}
 				style={{ width: "100%", display: "none", gridRow: "2/3" }}>
 				{products.slice(0, 3).map((product, index) => {
 					return (
@@ -111,7 +111,7 @@ const ProductSuite = () => {
 			</div>
 
 			<div
-				className="productSuiteDesktop"
+				className={styles.productSuiteDesktop}
 				style={{
 					maxWidth: "100%",
 					display: "none",
@@ -139,7 +139,7 @@ const ProductSuite = () => {
 				})}
 			</div>
 			<div
-				className="productSuiteDesktopLower productSuiteDesktop"
+				className={`${styles.productSuiteDesktopLower} ${styles.productSuiteDesktop}`}
 				style={{
 					maxWidth: "100%",
 					display: "none",
@@ -168,7 +168,7 @@ const ProductSuite = () => {
 				})}
 			</div>
 			<div
-				className="productSuiteMobile"
+				className={styles.productSuiteMobile}
 				style={{
 					display: "flex",
 					flexWrap: "wrap",

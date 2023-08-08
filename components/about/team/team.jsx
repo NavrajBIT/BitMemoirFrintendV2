@@ -1,6 +1,6 @@
 import TeamCard from "./teamCard";
 import { teamData } from "./teamData";
-import './team.css'
+import styles from './team.module.css';
 
 const Team = () => {
     return (
@@ -15,7 +15,7 @@ const Team = () => {
                     top: '4.6rem',
                     left: '10rem',
                     color: "var(--primary-light)",
-                }} className="teamHead">Founding Team</h1>
+                }} className={styles.teamHead}>Founding Team</h1>
                 <div style={{
                     // border: '2px solid red',
                     backgroundImage: `url(/about/team/team-bg.png)`,

@@ -2,6 +2,7 @@
 import TextScroller from '@/components/subcomponents/textScroller';
 import Form from '@/components/subcomponents/form/form';
 import { useState } from 'react';
+
 const VerificationForm = ({setIsVerified}) => {
     const [status, setStatus] = useState('');
     const verifyDataForm = [

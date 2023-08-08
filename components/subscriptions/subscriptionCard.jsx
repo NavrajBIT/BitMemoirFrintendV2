@@ -1,4 +1,4 @@
-import './subscription.css';
+import styles from './subscription.module.css';
 
 const cardHead = {
     color: 'white',
@@ -9,20 +9,20 @@ const cardHead = {
 
 const SubscriptionCard = ({ type, certificates, price }) => {
     return (
-        <div className="subscriptionCards">
-            <h3 className="subscriptionCardHead" style={cardHead}>{type}</h3>
+        <div className={styles.subscriptionCards}>
+            <h3 className={styles.subscriptionCardHead} style={cardHead}>{type}</h3>
             <div>
                 <h1 style={{
-                    color: 'var(--primary-light)',
+                    color: 'var(--primary-50)',
                     fontSize: '3.5rem'
-                }} className="certificates">{certificates}</h1>
+                }} className={styles.certificates}>{certificates}</h1>
                 <div style={{
                     width: '100%',
                     textAlign: 'center'
                 }}>Ceritificates</div>
             </div>
-            <div className="priceInfo">{price}$ / Ceritificates</div>
-            <button className='subscriptionBtn'>Buy Now</button>
+            <div className={styles.priceInfo}>{price}$ / Ceritificates</div>
+            <button className={styles.subscriptionBtn}>Buy Now</button>
         </div>
     )
 }

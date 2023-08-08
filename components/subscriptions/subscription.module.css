@@ -31,7 +31,7 @@
 }
 
 .subscriptionBtn {
-    background-color: var(--primary-dark);
+    background-color: var(--primary-60);
     color: white;
     padding: 0.7rem 1rem;
     width: 70%;

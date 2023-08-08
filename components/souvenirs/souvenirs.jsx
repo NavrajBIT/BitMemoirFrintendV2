@@ -1,6 +1,6 @@
 import Input from "../subcomponents/form/input"
 import Button from "../subcomponents/button2/button";
-import './souvenirs.css';
+import styles from './souvenirs.module.css';
 
 const Souvenirs = () => {
     return (
@@ -22,13 +22,13 @@ const Souvenirs = () => {
                 alignItems: 'center',
                 borderRadius: '8px',
                 position: 'relative'
-            }} id="formContainer">
+            }} id={styles.formContainer}>
                 <h1 style={{
                     color: 'var(--primary-light)',
                     position: 'absolute',
                     top: '-1rem',
                     left: '3rem',
-                }} className="formHead"
+                }} className={styles.formHead}
                 >Souvenirs</h1>
                 <div style={{
                     // border: '1px dashed var(--primary-light)',
@@ -39,17 +39,17 @@ const Souvenirs = () => {
                     alignItems: 'center',
                     justifyContent: 'flex-end',
                     padding: '1.5rem'
-                }} id="uploadImgDiv">
+                }} id={styles.uploadImgDiv}>
                     <img src="/souvenirs/uploadImg.png" alt="" style={{ margin: '2rem 0' }} />
                     <label htmlFor="img" style={{
                         textDecoration: 'underline',
                         cursor: 'pointer'
-                    }} id="uploadCertLabel">
+                    }} id={styles.uploadCertLabel}>
                         Click to upload certificate
                         <input type="file" id="img" name="img" accept="image/*" style={{ display: 'none' }} />
                     </label>
-                    <div style={{ margin: '8px 0' }} className="drag">OR</div>
-                    <div className="drag">Drag and drop image to upload</div>
+                    <div style={{ margin: '8px 0' }} className={styles.drag}>OR</div>
+                    <div className={styles.drag}>Drag and drop image to upload</div>
                 </div>
 
                 <label htmlFor="" style={{
@@ -58,7 +58,7 @@ const Souvenirs = () => {
                     margin: '1.5rem 0 0',
                     color: '#99ABAF'
                 }}>Souvenirs Frame</label>
-                <select id="cars" name="cars">
+                <select id={styles.select}>
                     <option value="volvo">Regular</option>
                 </select>
 

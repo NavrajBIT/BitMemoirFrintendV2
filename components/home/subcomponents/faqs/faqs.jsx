@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Accordian from "../accordian/accordian";
-import "./faqs.css";
+import styles from "./faqs.module.css";
 const FAQ = () => {
 	const faqs = [
 		{
@@ -30,14 +30,14 @@ const FAQ = () => {
 	];
 	return (
 		<section
-			className="faqs"
+			className={styles.faqs}
 			style={{
 				backgroundColor: "var(--primary-100)",
 				position: "relative",
 				marginTop: "0rem",
 			}}>
 			<div
-				className="faqsHeading"
+				className={styles.faqsHeading}
 				style={{
 					fontSize: "1.5rem",
 					fontWeight: "700",

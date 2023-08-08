@@ -1,14 +1,14 @@
-import './profile.css'
+import styles from './profile.module.css'
 
 const MobileProfileButton = () => {
     return (
-        <div className='mobileProfileButton'>
+        <div className={styles.mobileProfileButton}>
             <div style={{
                 display: 'flex',
                 justifyContent: 'space-around',
                 gap: '10px'
             }}>
-                <select className='selectBtn'>
+                <select className={styles.selectBtn}>
                     <option hidden>Certificate Type</option>
                     <option>Dynamic certificates</option>
                     <option>Static certificates</option>
@@ -16,10 +16,10 @@ const MobileProfileButton = () => {
                     <option>Souvenirs</option>
                     <option>Loyalty Programs</option>
                 </select>
-                <select className='filterBtn'>
+                <select className={styles.filterBtn}>
                     <option>Sort</option>
                 </select>
-                <select className='filterBtn'>
+                <select className={styles.filterBtn}>
                     <option>Filter</option>
                 </select>
             </div>
