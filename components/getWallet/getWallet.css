@@ -1,0 +1,73 @@
+@media screen and (min-width: 1024px) {
+	.getWalletSection {
+		height: 100%;
+		width: 100%;
+		background: linear-gradient(
+				to right,
+				rgba(0, 0, 0, 0.7),
+				rgba(0, 0, 0, 0.7)
+			),
+			url("/assets/images/background_3.png") var(--primary-100) 100% /
+				cover no-repeat;
+		background-repeat: no-repeat;
+		opacity: 1;
+		background-size: cover;
+		display: inline-block;
+		padding: 2rem;
+		text-align: center;
+	}
+	.getWalletMobileBackground {
+		display: none !important;
+	}
+	.getWalletDownloadSectionBackground {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		z-index: -1;
+		/* background: linear-gradient(
+				to right,
+				rgba(0, 0, 0, 0.7),
+				rgba(0, 0, 0, 0.7)
+			),
+			url("/assets/images/productSuiteBackgroundImage.png")
+				var(--primary-100); */
+		background: url("/assets/images/background_3.png");
+		mix-blend-mode: overlay;
+		background-repeat: repeat;
+		opacity: 1;
+		background-size: 1% 1%;
+		display: inline-block;
+		padding: 2rem;
+		overflow: hidden;
+		border-radius: 1rem;
+		background-position: center;
+	}
+	.getWalletDownloadSection {
+		max-width: 60%;
+		margin: 2rem auto !important;
+		border-radius: 1rem;
+	}
+	.chromeExtensionDownload {
+		display: flex !important;
+	}
+	.getWalletAndroidQRCode,
+	.getWalletIosQRCode {
+		display: block !important;
+	}
+	.getWalletAndroidLogo,
+	.getWalletIosLogo {
+		display: none !important;
+	}
+}
+@media screen and (min-width: 768px) {
+	.getWalletButtonsSection {
+		margin-bottom: 4rem !important;
+	}
+	.getWalletFeatures {
+		flex-direction: row !important;
+		flex-wrap: wrap;
+		max-width: 100%;
+	}
+}
