@@ -132,6 +132,11 @@ const Navbar = () => {
 						backgroundColor: "var(--primary-60)",
 						cursor: "pointer",
 					}}
+
+
+					onClick={() => {
+						router.push("/getWallet");
+					}}
 				>
 				</Button >
 			</div>
