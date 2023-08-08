@@ -4,13 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 // react
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 // components
 import Button from "@/components/subcomponents/button/button";
 
 const Navmenu = () => {
-	const [isNavMenuActive, setIsNavMenuActive] = useState(false);
 	const navMenuItems = [
 		{ name: "Certificates", route: "/mint" },
 		{ name: "NFT", route: "/view" },
@@ -19,9 +18,41 @@ const Navmenu = () => {
 		{ name: "About Us", route: "/about" },
 		{ name: "Profile", route: "/profile" },
 	];
+	const [isNavMenuActive, setIsNavMenuActive] = useState(false);
+	const [isModalClosing, setIsModalClosing] = useState(false);
+	const modalRef = useRef(null);
+
+	const handleButtonClick = () => {
+		if (!isModalClosing) {
+			setIsNavMenuActive(true);
+		}
+	};
+	const handleCloseModal = () => {
+		setIsModalClosing(true);
+		setTimeout(() => {
+			setIsModalClosing(false);
+		}, 500); // Adjust the timeout according to your animation duration
+		setIsNavMenuActive(false); // Set isNavMenuActive to false immediately
+	};
+	const handleDocumentClick = (event) => {
+		if (modalRef.current && !modalRef.current.contains(event.target)) {
+			handleCloseModal();
+		}
+	};
+	useEffect(() => {
+		if (isNavMenuActive) {
+			document.addEventListener("mousedown", handleDocumentClick);
+		}
+
+		return () => {
+			document.removeEventListener("mousedown", handleDocumentClick);
+		};
+	}, [isNavMenuActive]);
+
 	return (
 		<div>
 			<Image
+				tabIndex={2}
 				height={20}
 				width={20}
 				src="/icons/menu.svg"
@@ -31,7 +62,7 @@ const Navmenu = () => {
 					transition: "all 0.3s",
 					cursor: "pointer",
 				}}
-				onClick={() => setIsNavMenuActive((prev) => !prev)}
+				onClick={handleButtonClick}
 			/>
 			<nav
 				style={{
@@ -52,7 +83,8 @@ const Navmenu = () => {
 					top: "12%",
 					transform: "translateX(-50%)",
 					zIndex: "1000",
-				}}>
+				}}
+				ref={modalRef}>
 				{navMenuItems.map((item, index) => {
 					return (
 						<Link
@@ -90,6 +122,7 @@ const Navmenu = () => {
 					/>
 					<Link
 						href={"/getWallet"}
+						onClick={handleCloseModal}
 						style={{
 							color: "var(--white-100)",
 							fontSize: "1.25rem",
