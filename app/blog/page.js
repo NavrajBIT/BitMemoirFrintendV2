@@ -1,9 +1,7 @@
-const Page = () =>{
-    return(
-        <div>
-            <h1>Page</h1>
-        </div>
-    )
-}
+import Blog from "@/components/blogs/blog";
+
+const Page = () => {
+    return <Blog />;
+};
 
 export default Page;
