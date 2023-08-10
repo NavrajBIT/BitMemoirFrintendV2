@@ -18,6 +18,7 @@ const BlogNum = () => {
             gap: '1.5rem',
             alignItems: 'center',
             justifyContent: 'center',
+            padding:'12px'
         }}>
             <div style={containerStyle}>
                 <h2 style={{marginTop:'2rem'}}>The Need for Verified Digital Credentials: Building Trust in a Digital World</h2>

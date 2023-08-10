@@ -27,10 +27,7 @@ const Blog = () => {
             justifyContent: 'center',
         }}>
             <div style={containerStyle}>
-                <div style={{
-                    display: 'flex',
-                    justifyContent: 'space-between'
-                }}>
+                <div className={styles.blogHeader}>
                     <h3>Top Blogs</h3>
                     <div>
                         <button className={styles.button}>Sort</button>
@@ -50,7 +47,7 @@ const Blog = () => {
                         })
                     }
                 </div>
-                <div className={styles.blogCardsDiv}>
+                <div className={`${styles.blogCardsDiv} ${styles.blogFullCardsDiv}`}>
                     {
                         Array.from({ length: 3 }).map((blog, index) => {
                             return (

@@ -1,4 +1,5 @@
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import styles from './blog.module.css';
 
 const BlogCard = () => {
@@ -12,7 +13,9 @@ const BlogCard = () => {
                 <p>Building Trust in a Digital World</p>
             </div>
             <span className={styles.blogText}>In today's increasingly digital world, where information can be easily manipulated and falsified, the </span>
-            <span className={`${styles.blogText} ${styles.blogLink}`}>read more</span>
+            <Link href="/blog/blogNum" legacyBehavior>
+                <a className={`${styles.blogText} ${styles.blogLink}`}>read more</a>
+            </Link>
         </div>
     );
 }
