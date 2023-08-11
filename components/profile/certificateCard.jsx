@@ -12,7 +12,7 @@ const CertificateCard = () => {
                 </div>
                 <div style={{ marginBottom: '6px', fontSize: '0.8rem' }}>Last Updated - 18/06/2023</div>
                 <div style={{
-                    color: 'var(--primary-light)',
+                    color: 'var(--primary-50)',
                     marginBottom: '6px',
                     fontSize: '0.8rem'
                 }}>Draft</div>

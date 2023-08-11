@@ -1,15 +1,11 @@
 import tableData from "./tabelData";
-import Button from "@/components/subcomponents/button/button";
-import './certificate.css';
+import styles from './certificate.module.css';
 
 const tableStyle = {
   // border:'2px solid red',
   background: '#0F303E',
   maxWidth: '65rem',
   width: '90%',
-  // display: 'flex',
-  // flexWrap: 'wrap',
-  // alignItems: 'center',
   borderRadius: '8px',
   position: 'relative',
   margin: 'auto',
@@ -21,30 +17,34 @@ const Certificate = () => {
   return (
     <div>
       <h1 style={{ textAlign: 'center', margin: '1rem 0 2rem' }}>Certificate Name</h1>
-      <div id="tableContainer">
+      <div id={styles.tableContainer}>
         <table style={tableStyle}>
-          <tr>
-            <th>S No.</th>
-            <th>Recipient address</th>
-            <th>Token Id</th>
-            <th>Status</th>
-            <th>Action</th>
-          </tr>
-          {
-            tableData.map((data, index) => {
-              return (
-                <tr>
-                  <td>{data.id}</td>
-                  <td>{data.recipientAddress}</td>
-                  <td>{data.tokenId}</td>
-                  <td>{data.status}</td>
-                  <td>
-                    <button>Retry</button>
-                  </td>
-                </tr>
-              )
-            })
-          }
+          <thead>
+            <tr>
+              <th className={styles.th}>S No.</th>
+              <th className={styles.th}>Recipient address</th>
+              <th className={styles.th}>Token Id</th>
+              <th className={styles.th}>Status</th>
+              <th className={styles.th}>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              tableData.map((data, index) => {
+                return (
+                  <tr className={styles.row}>
+                    <td className={styles.column}>{data.id}</td>
+                    <td className={styles.column}>{data.recipientAddress}</td>
+                    <td className={styles.column}>{data.tokenId}</td>
+                    <td className={styles.column}>{data.status}</td>
+                    <td className={styles.column}>
+                      <button className={styles.tableBtn}>Retry</button>
+                    </td>
+                  </tr>
+                )
+              })
+            }
+          </tbody>
         </table>
       </div>
     </div>
