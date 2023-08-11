@@ -1,8 +1,8 @@
 const TeamCard = (props) => {
     return (
         <div style={{
-            border: '0.1px solid var(--primary-light)',
-            background: "var(--primary-extraDark)",
+            border: '0.1px solid #007B94',
+            background: "#002E37",
             width: '12rem',
             display: 'flex',
             flexDirection: 'column',
@@ -14,7 +14,7 @@ const TeamCard = (props) => {
             <span style={{ marginTop: "8px" }}>{props.designation}</span>
             <h4 style={{
                 margin: '1rem 0',
-                color: 'var(--primary-light)'
+                color: 'var(--primary-50)'
             }}
             >{props.name}</h4>
         </div>

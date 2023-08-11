@@ -14,7 +14,7 @@ const Team = () => {
                     position: 'absolute',
                     top: '4.6rem',
                     left: '10rem',
-                    color: "var(--primary-light)",
+                    color: "var(--primary-50)",
                 }} className={styles.teamHead}>Founding Team</h1>
                 <div style={{
                     // border: '2px solid red',
