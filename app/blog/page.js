@@ -1,7 +1,8 @@
+import Blog from "@/components/blogs/blog";
 const Page = () =>{
     return(
         <div>
-            <h1>Page</h1>
+            <Blog />
         </div>
     )
 }

@@ -1,20 +1,28 @@
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-
+import { useContext, useEffect, useState } from "react";
+import usetoken from "./usetoken";
+import UserContext from "../context/userContext";
 const API_URL = "http://localhost:8000/";
 
 const API = () => {
   const router = useRouter();
+  const user = useContext(UserContext);
+  const { getJwtToken, setJwtTokenfunc ,getrefreshToken, setrefreshtoken} = usetoken();
+
+
   const [jwtToken, setJwtToken] = useState(null);
 
+  
+
   const poppulateJWT = () => {
-    const token = localStorage.getItem("jwtToken");
+    const token = getJwtToken();
+    console.log(token);
     setJwtToken(token);
   };
-
+ 
   useEffect(() => {
     poppulateJWT();
-  });
+  },[getJwtToken]);
 
   async function crud(requestMethod, endpoint, data) {
     const requestOptions = {
@@ -81,10 +89,9 @@ async function getToken(data) {
       responseData["detail"] === "No active account found with the given credentials") {
       return { error: "Invalid credentials." };
     } else {
-      localStorage.setItem("jwtToken", responseData.access);
-      localStorage.setItem("jwtRefresh", responseData.refresh);
-      console.log(responseData);
-      
+      setJwtTokenfunc(responseData.access);
+      setrefreshtoken(responseData.refresh);
+      user.updateLogin(true)
       const userResponse = await fetch(API_URL + "user/userDetails", {
         method: "GET",
         headers: {
@@ -153,8 +160,8 @@ async function completeYourProfile(data) {
 }
 
 async function getProfile() {
+  const jwtToken = getJwtToken();
   try {
-    console.log(jwtToken);
     const requestOptions = {
       method: "GET",
       headers: {
@@ -176,8 +183,53 @@ async function getProfile() {
 
 
 
+async function getBlogs() {
+  try {
+    const requestOptions = {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    };
 
-  return { crud, createUser, jwtToken, getToken, refreshToken,completeYourProfile ,getProfile};
+    const response = await fetch(`${API_URL}blog`, requestOptions);
+    const responseData = await response.json();
+    console.log(responseData);
+    return responseData;
+  } catch (error) {
+    console.log("API call error:", error);
+    throw error;
+  }
+}
+
+
+async function socialLogin(accessToken,provider) {
+  try {
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        access_token: accessToken,
+        provider:provider
+      }),
+    };
+
+    const response = await fetch(`${API_URL}user/auth/`, requestOptions);
+    const responseData = await response.json();
+    console.log(responseData);
+    user.updateLogin(true)
+    return responseData;
+  } catch (error) {
+        console.log("API call error:", error);
+    throw error;
+  }
+
+  
+}
+
+
+
+  return { crud, createUser, jwtToken, getToken, refreshToken,completeYourProfile ,getProfile,getBlogs,socialLogin};
 };
 
 export default API;

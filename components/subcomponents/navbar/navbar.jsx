@@ -6,18 +6,20 @@ import Button from "../button/button";
 import Navmenu from "../navmenu/navmenu";
 import { useRouter } from "next/navigation";
 import "./navbar.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import usetoken from "../scripts/usetoken";
+import UserContext from "../context/userContext";
 const Navbar = () => {
+	
+	const { getJwtToken, setJwtTokenfunc ,getrefreshToken, setrefreshtoken} = usetoken();
 	const [jwtToken, setJwtToken] = useState(null);
-
-	const poppulateJWT = () => {
-	  const token = localStorage.getItem("jwtToken");
-	  setJwtToken(token);
-	};
-  
+	const user = useContext(UserContext);
+	
 	useEffect(() => {
-	  poppulateJWT();
-	});
+		const token = getJwtToken();
+		setJwtToken(token);
+		console.log(token);
+	},[user.isLogin]);
 
 	
 	const router = useRouter();
@@ -83,7 +85,8 @@ const Navbar = () => {
 					justifyContent: "center",
 					display: "none",
 				}}>
-				{jwtToken ?<Button
+				{jwtToken ?
+				<Button
 					text={"Log out"}
 					style={{
 						color: "var(--white-100)",
@@ -102,7 +105,9 @@ const Navbar = () => {
 						router.push("/login");
 					}}
 					
-				/>:
+				/>
+				
+				:
 				<Button
 				text={"Sign Up"}
 				style={{
@@ -118,10 +123,12 @@ const Navbar = () => {
 					router.push("/login");
 				}}
 				
-			/>}
+			/>
+			}
 					
 				
-				<Button
+				{!user.isWallet? 
+					<Button
 					text={"Get Wallet"}
 					style={{
 						color: "var(--white-100)",
@@ -138,7 +145,26 @@ const Navbar = () => {
 						router.push("/getWallet");
 					}}
 				>
+				</Button >:
+				<Button
+					text={"Connect Wallet"}
+					style={{
+						color: "var(--white-100)",
+						fontSize: "1.25rem",
+						padding: "0.5em 1em",
+						border: "1px solid var(--primary-60)",
+						borderRadius: "0.3em",
+						backgroundColor: "var(--primary-60)",
+						cursor: "pointer",
+					}}
+
+
+					onClick={() => {
+						user.connectWallet();
+					}}
+				>
 				</Button >
+				}
 			</div>
 			<span className="navmenu">
 				<Navmenu />

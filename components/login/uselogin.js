@@ -4,13 +4,16 @@ import { useRouter } from "next/navigation";
 import API from "../subcomponents/scripts/apiCall";
 import { useContext } from 'react';
 import UserContext from "../subcomponents/context/userContext";
+import usetoken from "../subcomponents/scripts/usetoken";
 const uselogin = () => {
   const api = API();
+  const { getJwtToken, setJwtTokenfunc ,getrefreshToken, setrefreshtoken}  = usetoken();
   const { userDetails, updateUserDetails } = useContext(UserContext);
   const router = useRouter();
   const [signUp, setSignUp] = useState(false);
   const [status, setStatus] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
 
   const signupformData = [
     {
@@ -95,7 +98,7 @@ const uselogin = () => {
           setStatus(res.error);
         } else {
           updateUserDetails(res);
-          // console.log(res);
+          console.log(res);
           localStorage.setItem("userDetails", JSON.stringify(res));
           router.push("/profile");
         }
@@ -173,17 +176,18 @@ const uselogin = () => {
 
 
   const authApI = async (accessToken, label,provider) => {
-    await fetch('http://127.0.0.1:8000/user/auth/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        access_token: accessToken,
-        provider:provider
-      }),
-    })
-      .then((response) => response.json())
+    // await fetch('http://127.0.0.1:8000/user/auth/', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({
+    //     access_token: accessToken,
+    //     provider:provider
+    //   }),
+    // })
+    //   .then((response) => response.json())
+    api.socialLogin(accessToken,provider)
       .then((data) => {
         // Store the received OAuth2.0 token in local storage or as needed
         console.log(data);
@@ -191,20 +195,22 @@ const uselogin = () => {
           localStorage.setItem("token", data.token);
           router.push("/login/completeYourProfile");
         }else{
-          localStorage.setItem("jwtToken", data.token);
-          api.getProfile().then((res) => {
-            console.log(res);
-            if (res.error) {
-              setStatus(res.error);
-            } else {
-              updateUserDetails(res);
-              localStorage.setItem("userDetails", JSON.stringify(res));
-              router.push("/profile");
-            }
-          }).catch((err) => {
-            setStatus("Something went wrong. Please try again.");
-            console.log(err);
-          })
+          // localStorage.setItem("jwtToken", data.token);
+          setJwtTokenfunc(data.token);
+          // api.getProfile().then((res) => {
+          //   console.log(res);
+          //   if (res.error) {
+          //     setStatus(res.error);
+          //   } else {
+          //     updateUserDetails(res);
+          //     localStorage.setItem("userDetails", JSON.stringify(res));
+          //     router.push("/profile");
+          //   }
+          // }).catch((err) => {
+          //   setStatus("Something went wrong. Please try again.");
+          //   console.log(err);
+          // })
+          router.push("/profile");
         }
       })
       .catch((error) => {

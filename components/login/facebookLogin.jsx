@@ -5,6 +5,7 @@ import { FacebookLoginButton } from "react-social-login-buttons";
 import uselogin from "./uselogin";
 
 function FacebookOAuth({label}) {
+  const loginscript = uselogin();
   const [accessToken, setAccessToken] = useState(null);
 
 
