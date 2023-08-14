@@ -33,7 +33,7 @@ const Team = () => {
                         teamData.map((teamMember, index) => {
                             return (
                                 <TeamCard
-                                    key={index+teamMember}
+                                    key={index + teamMember}
                                     name={teamMember.name}
                                     designation={teamMember.designation}
                                     img={teamMember.img}

@@ -1,7 +1,6 @@
 #uploadImgDiv{
         width: 100px;
         height: 100px;
-        /* dashed border */
         background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%2300D4FFFF' stroke-width='3' stroke-dasharray='17%2c 23' stroke-dashoffset='41' stroke-linecap='square'/%3e%3c/svg%3e");
 }
 
@@ -9,12 +8,15 @@
     color:#99ABAF;
     font-weight: bold;
 }
-
+.uploadImg{
+    height:7rem;
+    margin:2rem 0;
+}
 #select{
     max-width: 90%;
     width: 35%;
     background: #004351;
-    color:#757575;
+    color:white;
     padding: 1rem;
     margin: 0 0 1rem;
     border: none;
@@ -41,7 +43,17 @@
         height: 4rem;
         margin:1.5rem !important;
     }
+    #select{
+        max-width: 70%;
+        width: 90%;
+    }
     .drag{
         display: none;
+    }
+}
+@media only screen and (max-width:450px){
+    #select{
+        max-width: 80%;
+        width: 90%;
     }
 }

@@ -22,8 +22,8 @@ const Form = ({
     handleSubmit(submitResults);
   };
 
-  if(!bgImage){
-    var formcontainerStyle ={
+  if (!bgImage) {
+    var formcontainerStyle = {
       backgroundColor: "#0F303E",
       backgroundImage: "None",
     }

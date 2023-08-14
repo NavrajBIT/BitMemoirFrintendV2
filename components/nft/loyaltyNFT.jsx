@@ -1,11 +1,32 @@
+'use client'
+
+import { useState } from "react";
 import Input from "../subcomponents/form/input"
 import Button from "../subcomponents/button2/button";
-import  styles from './loyaltyNFT.module.css';
+import styles from './loyaltyNFT.module.css';
 
 const LoyaltyNFT = () => {
+    const [uploadedImage, setUploadedImage] = useState(null);
+    const [rewardVal, setRewardVal] = useState(10);
+
+    const handleImageUpload = (event) => {
+        const file = event.target.files[0];
+        // console.log(file);
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setUploadedImage(reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
+    const incrementReward = () => (rewardVal < 100) && setRewardVal(rewardVal + 5);
+
+    const decrementReward = () => (rewardVal > 5) && setRewardVal(rewardVal - 5);
+
     return (
         <div style={{
-            // height: '80vh',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -21,49 +42,61 @@ const LoyaltyNFT = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 borderRadius: '8px',
-                position: 'relative'
+                position: 'relative',
+                padding: '2rem 0'
             }} id={styles.formContainer}>
                 <h1 style={{
-                    color: 'var(--primary-light)',
+                    color: 'var(--primary-50)',
                     position: 'absolute',
                     top: '-1rem',
                     left: '3rem',
                 }} className={styles.formHead}
                 >Loyalty NFT</h1>
                 <div style={{
-                    // border: '1px dashed var(--primary-light)',
                     height: '20rem',
                     width: '90%',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'flex-end',
-                    padding: '1.5rem'
-                }} id="uploadImgDiv">
-                    <img src="/souvenirs/uploadImg.png" alt="" style={{ margin: '2rem 0' }} />
+                    padding: '1.5rem',
+                    margin: '2rem 0'
+                }} id={styles.uploadImgDiv}>
+                    {uploadedImage ? (
+                        <img src={uploadedImage} alt="" className={styles.uploadImg} />
+                    ) : (
+                        <img src="/souvenirs/uploadImg.png" alt="" className={styles.uploadImg} />
+                    )}
                     <label htmlFor="img" style={{
                         textDecoration: 'underline',
                         cursor: 'pointer'
-                    }} id="uploadCertLabel">
+                    }} id={styles.uploadCertLabel}>
                         Click to upload certificate
-                        <input type="file" id="img" name="img" accept="image/*" style={{ display: 'none' }} />
+                        <input type="file" id="img" name="img" accept="image/*" style={{ display: 'none' }} onChange={handleImageUpload} />
                     </label>
                     <div style={{ margin: '8px 0' }} className={styles.drag}>OR</div>
                     <div className={styles.drag}>Drag and drop image to upload</div>
                 </div>
                 <Input placeholder="Wallet Address" />
                 <Input placeholder="Email Address" />
-                <label htmlFor="" style={{
-                    fontSize: '12px',
-                    textAlign: 'start',
-                    margin: '1.5rem 0 0',
-                    color: '#99ABAF'
-                }}>Membership</label>
-                <select id={styles.select}>
-                    <option value="volvo">Regular</option>
-                    <option value="volvo">Premium</option>
-                </select>
-                <Input placeholder="Reward" />
+                <div className={styles.halfInput}>
+                    <div className={styles.membershipDiv}>
+                        <label className={styles.label}>Membership</label>
+                        <select id={styles.membership}>
+                            <option className={styles.selectOptions}>Regular</option>
+                            <option className={styles.selectOptions}>Premium</option>
+                        </select>
+                    </div>
+                    <div className={styles.rewardDiv}>
+                        <label className={styles.label}>Reward</label>
+                        <input type="" value={`${rewardVal}%`} id={styles.reward} />
+                        <span id={styles.rewardIcons}>
+                            <img src="/nft/plus.png" alt="" id={styles.plusIcon} onClick={incrementReward} />
+                            <img src="/nft/minus.png" alt="" id={styles.minusIcon} onClick={decrementReward} />
+                        </span>
+                    </div>
+
+                </div>
                 <Button buttonText="Publish" />
             </div>
         </div>
