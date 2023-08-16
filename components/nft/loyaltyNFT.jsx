@@ -41,6 +41,7 @@ const LoyaltyNFT = () => {
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
+                gap:'1.5rem',
                 borderRadius: '8px',
                 position: 'relative',
                 padding: '2rem 0'

@@ -1,5 +1,7 @@
 "use client";
+
 import { Children, useRef, useState } from "react";
+import Input from "./input";
 import Button from "../button/button";
 import style from "./form.module.css";
 
@@ -29,28 +31,35 @@ const Form = ({
     }
   }
 
+  console.log(formData);
+
   return (
     <div className={style.formcontainer} style={formcontainerStyle}>
       <div className={style.formoverlay} />
       {formTitle && <div className={style.formTitle}>{formTitle}</div>}
       <form onSubmit={submitForm} className={style.myform}>
-        {formData.map((inputData, index) => (
-          <InputField inputData={inputData} key={inputData.label + index} />
-        ))}
+        {
+          formData.map((inputData, index) => {
+            console.log(inputData)
+            return (
+              <Input inputData={inputData} placeholder={inputData.label} key={inputData.label + index} />
+            );
+          })
+        }
         <div style={{ color: "red" }}>{status}</div>
-        <div
+        {/* <div
           style={{
             width: "50%",
             margin: "auto",
           }}
-        >
+        > */}
           <Button
             text={formButton}
             type="submit"
             variant="primary"
             isLoading={isLoading}
           />
-        </div>
+        {/* </div> */}
       </form>
       {children}
     </div>

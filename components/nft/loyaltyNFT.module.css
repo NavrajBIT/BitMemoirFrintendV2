@@ -16,7 +16,7 @@
 }
 
 .halfInput {
-    width: 70%;
+    width: 75%;
     display: flex;
     justify-content: space-between;
 }
@@ -96,7 +96,7 @@
         margin: 1.5rem !important;
     }
     .halfInput {
-        width:70%;
+        width:75%;
     }
     .drag {
         display: none;

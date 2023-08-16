@@ -1,14 +1,14 @@
 .primaryButton {
   border: 1.5px solid var(--primary-60);
   background-color: var(--primary-60);
-  font-size: 1.5rem;
+  font-size: 1rem;
   padding: var(--padding-light);
   color: var(--text-primary);
   border-radius: var(--border-radius-light);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 30%;
 }
 
 .primaryButton:hover {
@@ -19,14 +19,15 @@
 
 .secondaryButton {
   border: 1.5px solid var(--primary-60);
-  font-size: 1.5rem;
-  padding: var(--padding-light);
+  font-size: 1rem;
+  padding: var(--padding-light) 0;
   color: var(--text-primary);
   border-radius: var(--border-radius);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  /* width: 100%; */
+  width: 30%;
 }
 
 .secondaryButton:hover {

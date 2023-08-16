@@ -1,16 +1,18 @@
 .formcontainer {
-  padding: var(--padding-main);
+  /* border:2px solid red; */
+  padding: var(--padding-main) 0;
   background-image: url("/assets/images/background_3.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  background: var(--primary-100);
   position: relative;
   width: 100%;
   max-width: var(--max-width-form);
   z-index: 0;
 }
 
-.formoverlay {
+/* .formoverlay {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -18,7 +20,7 @@
   left: 0px;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: -1;
-}
+} */
 
 .formTitle {
   color: var(--primary-50);
@@ -27,15 +29,19 @@
   font-weight: bold;
   position: absolute;
   top: -1rem;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 3rem;
+  /* left: 50%;
+  transform: translateX(-50%); */
 }
 
 .myform {
-  padding: var(--padding-main);
+  /* background: var(--primary-100); */
   display: flex;
   flex-direction: column;
-  gap: var(--padding-main);
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
   width: 100%;
 }
 
@@ -53,6 +59,7 @@
 .inputcontainer {
   position: relative;
 }
+
 .inputcontainer label {
   font-size: 0.75rem;
   color: var(--text-bright);
@@ -71,4 +78,12 @@
 
 .myform input::placeholder {
   color: var(--text-dark);
+}
+
+@media only screen and (max-width:600px) {
+  .formTitle {
+    left: 50%;
+    top: -5rem;
+    transform: translate(-50%, 0);
+}
 }

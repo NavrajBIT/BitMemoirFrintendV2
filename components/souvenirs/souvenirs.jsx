@@ -36,6 +36,7 @@ const Souvenirs = () => {
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
+                gap:'1.5rem',
                 borderRadius: '8px',
                 position: 'relative',
                 padding:'3.5rem 0 1rem'
@@ -75,7 +76,7 @@ const Souvenirs = () => {
                 <label htmlFor="" style={{
                     fontSize: '12px',
                     textAlign: 'start',
-                    margin: '1.5rem 0 0',
+                    margin: '5px 0 -15px',
                     color: '#99ABAF'
                 }}>Souvenirs Frame</label>
                 <select id={styles.select}>

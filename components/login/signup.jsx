@@ -36,7 +36,7 @@ const UserSignUp = ({ useLogin }) => {
             <FacebookOAuth label =" Sign Up "/>
           </div>
           Already have an account?
-          <div style={{ width: "50%" }}>
+          {/* <div style={{ width: "50%" }}> */}
             <Button
               text={"Log In"}
               variant={"secondary"}
@@ -46,7 +46,7 @@ const UserSignUp = ({ useLogin }) => {
                 useLogin.setSignUp(false);
               }}
             />
-          </div>
+          {/* </div> */}
         </div>
       </Form>
     </div>

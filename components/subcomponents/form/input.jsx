@@ -3,9 +3,9 @@ import styles from './input.module.css';
 const inputStyle = {
     background: '#004351',
     width:'90%',
-    maxWidth:'70%',
+    maxWidth:'75%',
     padding: '1rem',
-    margin: '1rem',
+    // margin: '1rem',
     border: 'none',
     outline: 'none',
 }
