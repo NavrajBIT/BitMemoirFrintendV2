@@ -14,41 +14,41 @@ export const UserContextProvider = ({ children }) => {
   const [isWalletConnected, setIsWalletConnected] = useState(false);
   const [provider, setProvider] = useState(null);
 
-  useEffect(() => {
-    // This effect runs after the component is mounted on the client side
-    const checkWalletAvailableAndConnect = async () => {
-      if (typeof window !== 'undefined' && window.ethereum) {
-        try {
-          const web3Provider = new Web3Provider(window.ethereum);
-          setProvider(web3Provider);
+  // useEffect(() => {
+  //   // This effect runs after the component is mounted on the client side
+  //   const checkWalletAvailableAndConnect = async () => {
+  //     if (typeof window !== 'undefined' && window.ethereum) {
+  //       try {
+  //         const web3Provider = new Web3Provider(window.ethereum);
+  //         setProvider(web3Provider);
 
-          setIsWallet(true);
-          setIsWalletConnected(
-            window.ethereum.selectedAddress !== null &&
-            window.ethereum.selectedAddress !== ""
-          );
-        } catch (error) {
-          console.error("Error initializing Web3Provider:", error);
-        }
-      }
-    };
+  //         setIsWallet(true);
+  //         setIsWalletConnected(
+  //           window.ethereum.selectedAddress !== null &&
+  //           window.ethereum.selectedAddress !== ""
+  //         );
+  //       } catch (error) {
+  //         console.error("Error initializing Web3Provider:", error);
+  //       }
+  //     }
+  //   };
 
-    // Delay the execution to ensure the component is fully mounted
-    const timer = setTimeout(checkWalletAvailableAndConnect, 1000);
+  //   // Delay the execution to ensure the component is fully mounted
+  //   const timer = setTimeout(checkWalletAvailableAndConnect, 1000);
 
-    // Clean up the timer when the component is unmounted
-    return () => clearTimeout(timer);
-  }, []);
+  //   // Clean up the timer when the component is unmounted
+  //   return () => clearTimeout(timer);
+  // }, []);
 
 
   const connectWallet = async () => {
-    try {
-      await provider.send("eth_requestAccounts", []);
-      setIsConnected(true);
-    } catch (err) {
-      // handle error
-    }
-    checkWalletAvailableAndConnect();
+    // try {
+    //   await provider.send("eth_requestAccounts", []);
+    //   setIsConnected(true);
+    // } catch (err) {
+    //   // handle error
+    // }
+    // checkWalletAvailableAndConnect();
   };
 
   const updateUserDetails = (newValue) => {
