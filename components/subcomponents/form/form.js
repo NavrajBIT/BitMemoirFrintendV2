@@ -42,7 +42,12 @@ const Form = ({
           formData.map((inputData, index) => {
             console.log(inputData)
             return (
-              <Input inputData={inputData} placeholder={inputData.label} key={inputData.label + index} />
+              <Input
+                inputData={inputData}
+                placeholder={inputData.label}
+                key={inputData.label + index}
+                name={inputData.label}
+              />
             );
           })
         }
@@ -53,12 +58,12 @@ const Form = ({
             margin: "auto",
           }}
         > */}
-          <Button
-            text={formButton}
-            type="submit"
-            variant="primary"
-            isLoading={isLoading}
-          />
+        <Button
+          text={formButton}
+          type="submit"
+          variant="primary"
+          isLoading={isLoading}
+        />
         {/* </div> */}
       </form>
       {children}

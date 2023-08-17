@@ -48,7 +48,7 @@ const Home = () => {
 						flexDirection: "column",
 						gap: "1rem",
 						width: "55%",
-					}}>
+					}} className={styles.homeTextDiv}>
 					<div
 						style={{
 							margin: "2rem 0 0 2rem",

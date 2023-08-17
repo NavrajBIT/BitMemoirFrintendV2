@@ -41,3 +41,12 @@
 		display: block !important;
 	}
 }
+@media screen and (max-width: 992px) {
+	.homeTextDiv{
+		margin: auto;
+		text-align: center;
+	}
+	.heroHeading{
+		margin:unset !important;
+	}
+}

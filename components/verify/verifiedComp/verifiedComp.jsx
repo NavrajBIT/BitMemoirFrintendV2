@@ -29,7 +29,7 @@ const VerifiedComp = () => {
         }}>
             <div style={containerStyle} className={styles.container} id={styles.firstContainer}>
                 <h1 style={{
-                    color: 'var(--primary-light)',
+                    color: 'var(--primary-50)',
                     position: 'absolute',
                     top: '0',
                     left: '50%',
@@ -66,7 +66,7 @@ const VerifiedComp = () => {
                     <div className={styles.text} style={{ color: 'var(--primary-50)' }}>0x88f48ce4fcB67490256edbCd6C45C6Ee57E12d49</div>
                 </div>
                 <button style={{
-                        background: 'var(--primary-50)',
+                        background: 'var(--primary-60)',
                         color: 'white',
                         padding: '1rem',
                         width: '25%',
